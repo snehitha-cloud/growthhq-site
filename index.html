@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>growthHQ | Your ROI Centric B2C Marketing Partner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mint: #18cb96;
+            --dark: #373643;
+            --white: #ffffff;
+            --bg-soft: #f8f9fa; /* Professional off-white background */
+        }
+        
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            color: var(--dark); 
+            background-color: var(--bg-soft);
+            line-height: 1.6;
+        }
+
+        /* 1. Header & Navigation */
+        header.nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 1rem 5%;
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Increased Logo Size */
+        .nav-logo-link img { 
+            height: 85px; /* Significantly larger logo */
+            width: auto; 
+            display: block;
+        }
+        .nav-menu { display: flex; gap: 3rem; }
+        .nav-menu a { 
+            text-decoration: none; 
+            color: var(--dark); 
+            font-weight: 600; 
+            font-size: 1rem; 
+            transition: color 0.3s;
+        }
+        .nav-menu a:hover { color: var(--mint); }
+
+        /* 2. Hero Section */
+        .hero { 
+            padding: 12rem 1.5rem 8rem; 
+            text-align: center; 
+        }
+        .hero h1 { 
+            font-size: clamp(3rem, 8vw, 5rem); 
+            font-weight: 800; 
+            margin: 0 auto 2.5rem;
+            max-width: 1100px;
+            line-height: 1.0;
+            letter-spacing: -2px;
+        }
+        .cta-btn { 
+            display: inline-block;
+            background-color: var(--mint);
+            color: var(--dark);
+            padding: 1.3rem 3.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(24, 203, 150, 0.3);
+            transition: all 0.3s;
+        }
+        .cta-btn:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(24, 203, 150, 0.4); }
+
+        /* 3. Global Section Styling */
+        .section { padding: 8rem 1.5rem; max-width: 1200px; margin: auto; }
+        .section-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 4rem; text-align: center; }
+
+        /* 4. Strategic Solutions (Services) */
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
+            gap: 2.5rem; 
+        }
+        .service-card { 
+            background: var(--white);
+            padding: 4rem 3rem; 
+            border: 1px solid #eee; 
+            border-radius: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--mint); box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+        .service-card h3 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--dark); }
+
+        /* 5. Success Stories & Stats */
+        .success-stories { 
+            background-color: var(--dark); 
+            color: var(--white); 
+            border-radius: 50px; 
+            margin: 0 2rem; 
+            padding: 8rem 2rem; 
+        }
+        .success-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4rem; }
+        .success-stat { text-align: center; }
+        .success-stat h2 { font-size: 4rem; color: var(--mint); margin: 0; font-weight: 800; }
+        .success-stat p { font-size: 1.1rem; opacity: 0.8; margin-top: 0.8rem; }
+
+        /* 6. Proof of Work (Testimonial) */
+        .testimonial-box { 
+            background: var(--white); 
+            padding: 6rem 3rem; 
+            border-radius: 40px; 
+            text-align: center;
+            max-width: 1000px;
+            margin: 6rem auto;
+            border: 1px solid #eee;
+        }
+        .testimonial-text { font-size: 1.8rem; font-weight: 500; line-height: 1.5; margin-bottom: 3rem; color: #4a4a58; }
+
+        /* 7. Contact Us Form */
+        .form-container { 
+            max-width: 600px; 
+            margin: auto; 
+            background: var(--white); 
+            padding: 4rem; 
+            border-radius: 35px;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .form-container input { 
+            width: 100%; padding: 1.2rem; margin-bottom: 1.5rem; 
+            border: 1px solid #e5e7eb; border-radius: 15px; font-size: 1rem;
+            background: #f9fafb;
+        }
+        .submit-btn { 
+            width: 100%; background: var(--dark); color: white; 
+            padding: 1.3rem; border: none; border-radius: 15px; font-weight: 700; cursor: pointer;
+            font-size: 1.1rem; transition: background 0.3s;
+        }
+        .submit-btn:hover { background: #000; }
+
+        /* Mobile Tweaks */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .nav-logo-link img { height: 60px; }
+            .hero { padding-top: 10rem; }
+            .hero h1 { font-size: 3rem; }
+            .success-stories { margin: 1rem; border-radius: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="nav-header">
+        <div class="nav-container">
+            <a href="#" class="nav-logo-link">
+                <img src="logo.png" alt="growthHQ Logo">
+            </a>
+            <div class="nav-menu">
+                <a href="#solutions">Services</a>
+                <a href="#proof">Proof of Work</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <header class="hero">
+        <h1>Your ROI Centric<br>B2C Marketing Partner</h1>
+        <a href="https://calendly.com/your-profile" class="cta-btn">Schedule a Call</a>
+    </header>
+
+    <section id="solutions" class="section">
+        <h2 class="section-title">Strategic Solutions</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Google Ad Campaigns</h3>
+                <p>Expert management of UAC, Search, and Display campaigns with a focus on scaling $68M+ (₹600 Cr+) annual budgets.</p>
+            </div>
+            <div class="service-card">
+                <h3>Meta Ad Campaigns</h3>
+                <p>Advanced full-funnel Meta strategies driven by rigorous creative testing and messaging clarity.</p>
+            </div>
+            <div class="service-card">
+                <h3>Conversion Optimization (CRO)</h3>
+                <p>Driving 40% CPA reductions by optimizing on-site landing pages and product trial funnels.</p>
+            </div>
+            <div class="service-card">
+                <h3>Marketing Automation & CRM</h3>
+                <p>Setting up the essential marketing tech stack to nurture leads and automate user journeys efficiently.</p>
+            </div>
+            <div class="service-card">
+                <h3>Retention & Monetisation</h3>
+                <p>Strategic product and marketing levers that have historically lifted LTV by 22% and retention by 25%.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="proof">
+        <div class="success-stories">
+            <div class="section" style="padding: 0;">
+                <h2 class="section-title" style="color: white;">Featured Success Stories</h2>
+                <div class="success-grid">
+                    <div class="success-stat"><h2>₹600 Cr+</h2><p>Budget Managed</p></div>
+                    <div class="success-stat"><h2>40%</h2><p>CPA Reduction</p></div>
+                    <div class="success-stat"><h2>50%</h2><p>YoY Growth</p></div>
+                    <div class="success-stat"><h2>22%</h2><p>LTV Lift</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="testimonial-box">
+                <p class="testimonial-text">"Snehitha was a huge help in shaping our growth and marketing efforts for the India market. She brought a lot of clarity and momentum to the team, which we really appreciate."</p>
+                <strong>Akshay Akash</strong><br>CEO at Stimuler (Google's Best AI App - 2023)
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="form-container">
+            <h3 style="text-align: center;">Ready to Scale?</h3>
+            <form name="growthhq-leads" method="POST" data-netlify="true">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Work Email ID" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <button type="submit" class="submit-btn">Request a Call back</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="padding: 4rem; text-align: center; opacity: 0.4; font-size: 0.9rem;">
+        &copy; 2025 growthHQ. Built for scale.
+    </footer>
+
+</body>
+</html>
