@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>growthHQ | Growth Partners for Early & Scaling B2C Brands</title>
+    <title>growthHQ | Growth Partners for Early-Stage & Scaling B2C Brands</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -14,12 +14,9 @@
             --text-gray: #555560;
             --white: #ffffff;
             --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f9fbfb 100%);
-            --danger: #fff5f5;
-            --danger-text: #c53030;
-            --success: #f0fdf9;
-            --success-text: #0d8a6a;
-            --tier-2: #2d9cdb;
-            --tier-3: #9b51e0;
+            --subtle-blue-bg: #f0f4f8;
+            --subtle-blue-border: #dbeafe;
+            --subtle-blue-text: #334155;
         }
         
         * { box-sizing: border-box; scroll-behavior: smooth; }
@@ -32,7 +29,7 @@
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            padding-bottom: 80px; /* Space for sticky mobile button */
+            /* Padding bottom handled dynamically by sticky button visibility */
         }
 
         /* --- 1. NAVIGATION --- */
@@ -52,7 +49,7 @@
             align-items: center;
         }
         .nav-logo-link img { 
-            height: 48px; /* Increased size as requested */
+            height: 48px; /* Increased size */
             width: auto; 
             display: block;
             object-fit: contain; 
@@ -89,28 +86,45 @@
             text-decoration: none;
             font-size: 1.1rem;
         }
-        
-        /* Hide desktop CTA in menu on mobile */
         .desktop-only { display: none; }
+
+        /* Green Menu CTA */
+        .nav-cta {
+            background-color: var(--mint);
+            color: var(--white);
+            padding: 0.7rem 1.5rem; 
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(24, 203, 150, 0.2);
+        }
 
         /* --- 2. HERO SECTION --- */
         .hero { padding: 4rem 1.5rem 2rem; text-align: center; }
         .hero h1 { 
             font-size: clamp(2rem, 5vw, 3.5rem); 
             font-weight: 800; 
-            margin: 0 auto 1rem;
+            margin: 0 auto 1.5rem;
             max-width: 1200px; 
             line-height: 1.2;
             letter-spacing: -0.02em;
             color: var(--dark);
         }
-        .hero p.subheadline {
-            font-size: 1rem; /* Reduced font size */
-            color: var(--text-gray);
-            max-width: 800px; 
-            margin: 0 auto 1.5rem;
-            font-weight: 400;
-            line-height: 1.6;
+        /* Subheadline removed as requested */
+        
+        .cta-btn { 
+            display: inline-block;
+            background-color: var(--mint);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(24, 203, 150, 0.25);
+            transition: all 0.3s ease;
         }
         .microcopy { font-size: 0.85rem; color: #888; margin-top: 1rem; display: block; }
 
@@ -135,9 +149,8 @@
             display: flex;
             width: max-content;
             animation: scroll 30s linear infinite;
-            align-items: center; /* Centers logos vertically */
+            align-items: center;
         }
-        .marquee-track:hover { animation-play-state: paused; }
         .marquee-logo {
             height: 40px; /* Fixed height for uniformity */
             width: auto;
@@ -152,8 +165,7 @@
         .section { padding: 3rem 1.5rem; max-width: 1100px; margin: auto; }
         .section-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 2rem; text-align: center; color: var(--dark); line-height: 1.2; }
         
-        /* GrowthHQ Brand Text Style */
-        .brand-text { font-weight: 800; color: var(--dark); }
+        .brand-text { font-weight: 800; color: var(--dark); font-family: 'Inter', sans-serif; }
         .brand-hq { color: var(--mint); }
 
         /* --- 5. SELF QUALIFICATION --- */
@@ -172,18 +184,29 @@
             color: var(--dark);
         }
         .check-list li::before {
-            content: '✓';
-            color: var(--mint);
-            font-weight: 900;
-            position: absolute;
-            left: 0;
+            content: '✓'; color: var(--mint); font-weight: 900; position: absolute; left: 0;
         }
         .qual-footer { margin-top: 1.5rem; font-weight: 700; color: var(--mint); text-align: center; }
 
-        /* --- 6. PROBLEM / SOLUTION --- */
-        .how-help-wrapper { max-width: 900px; margin: auto; text-align: left; }
-        .problem-list li { margin-bottom: 0.8rem; font-size: 1rem; position: relative; padding-left: 20px; }
-        .problem-list li::before { content: '•'; color: var(--mint); font-weight: bold; position: absolute; left: 0; }
+        /* --- 6. HOW WE HELP (Services Grid) --- */
+        .services-wrapper { max-width: 800px; margin: auto; }
+        .services-intro { text-align: center; margin-bottom: 2rem; font-size: 1.05rem; }
+        .services-grid-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .service-pill {
+            background: var(--white);
+            border: 1px solid #eee;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            color: var(--dark);
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .services-footer { text-align: center; margin-top: 2rem; font-weight: 700; color: var(--mint); font-size: 1.1rem; }
 
         /* --- 7. COMPARISON CARDS --- */
         .comp-grid { display: grid; gap: 1.5rem; }
@@ -193,21 +216,19 @@
             border-radius: 16px;
             border: 1px solid #eee;
         }
-        .comp-card.bad { border-left: 4px solid var(--danger-text); }
+        .comp-card.bad { border-left: 4px solid #ff6b6b; }
         .comp-card.good { border: 2px solid var(--mint); background: #fafffd; }
-        
         .comp-title { font-weight: 700; font-size: 1.1rem; color: var(--dark); }
         .comp-subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #888; font-weight: 600; margin-bottom: 1rem; display: block; }
         
-        .result-box {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        .result-bad { background: var(--danger); color: var(--danger-text); }
-        .result-good { background: var(--success); color: var(--success-text); }
+        .comp-list { list-style: none; padding: 0; margin: 0; }
+        /* Fix overlapping: added padding-left and line-height */
+        .comp-list li { margin-bottom: 0.8rem; font-size: 0.95rem; position: relative; padding-left: 25px; line-height: 1.5; color: var(--text-gray); }
+        .comp-list li::before { content: '•'; position: absolute; left: 0; top: 0; font-size: 1.2rem; color: #ccc; }
+        
+        .result-box { margin-top: 1rem; padding: 0.8rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; }
+        .result-bad { background: #fff5f5; color: #c53030; }
+        .result-good { background: #f0fdf9; color: #0d8a6a; }
 
         /* --- 8. PRICING CARDS --- */
         .pricing-grid { display: grid; gap: 2rem; margin-top: 2rem; }
@@ -215,128 +236,107 @@
             background: var(--white);
             padding: 2rem 1.5rem;
             border-radius: 20px;
-            border: 1px solid #eee;
             position: relative;
             display: flex;
             flex-direction: column;
         }
-        .pricing-card.popular { border: 2px solid var(--tier-2); }
+        
+        /* Tier 2: Green Highlight */
+        .pricing-card.brand-green { 
+            border: 2px solid var(--mint); 
+            box-shadow: 0 10px 30px rgba(24, 203, 150, 0.15);
+        }
+        /* Tier 1 & 3: Subtle Blue */
+        .pricing-card.subtle-blue { 
+            background: var(--subtle-blue-bg);
+            border: 1px solid var(--subtle-blue-border);
+        }
+
         .pop-badge {
             position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-            background: var(--tier-2); color: white; padding: 4px 12px;
+            background: var(--mint); color: white; padding: 4px 12px;
             border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
         }
+        
+        /* Headers inside pricing */
+        .tier-header-green { color: var(--mint); font-weight: 800; font-size: 1.2rem; }
+        .tier-header-blue { color: var(--subtle-blue-text); font-weight: 800; font-size: 1.2rem; }
+
         .tier-price { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin: 0.5rem 0 1rem; }
-        .tier-list { list-style: none; padding: 0; margin: 1.5rem 0; flex-grow: 1; }
+        .tier-desc { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; font-style: italic; }
+
+        .tier-list { list-style: none; padding: 0; margin: 0 0 1.5rem 0; flex-grow: 1; }
         .tier-list li { margin-bottom: 0.8rem; font-size: 0.95rem; padding-left: 25px; position: relative; color: var(--text-gray); }
         .tier-list li::before { content: '✓'; color: var(--mint); position: absolute; left: 0; font-weight: bold; }
         
-        /* Global Button Styles (Fixed to look like buttons) */
+        /* Buttons */
         .btn-style {
-            display: block; 
-            width: 100%; 
-            text-align: center; 
-            padding: 1rem;
-            border-radius: 50px; 
-            font-weight: 700; 
-            text-decoration: none;
-            font-size: 1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: block; width: 100%; text-align: center; padding: 1rem;
+            border-radius: 50px; font-weight: 700; text-decoration: none;
+            font-size: 1rem; transition: transform 0.2s; cursor: pointer;
         }
-        .btn-style:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
-        
-        /* Button Variants */
-        .btn-green { background-color: var(--mint); color: white; }
-        .btn-blue { background-color: var(--tier-2); color: white; }
-        .btn-purple { background-color: var(--tier-3); color: white; }
+        .btn-green { background-color: var(--mint); color: white; box-shadow: 0 4px 15px rgba(24, 203, 150, 0.25); }
+        .btn-blue-outline { background: transparent; border: 2px solid var(--dark); color: var(--dark); }
+        .btn-blue-outline:hover { background: var(--dark); color: white; }
 
         /* --- 9. FOUNDER --- */
         .founder-container { text-align: center; }
         .founder-img {
             width: 200px; height: 200px; border-radius: 20px; 
             object-fit: cover; margin: 0 auto 1.5rem;
-            border: 1px solid #eee;
-            box-shadow: 10px 10px 0 var(--mint-light);
+            border: 1px solid #eee; box-shadow: 10px 10px 0 var(--mint-light);
         }
         .founder-stats {
-            display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 1.5rem 0;
+            display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin: 1.5rem 0;
         }
-        .stat-pill { background: #f4f4f5; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; }
+        .stat-pill { background: #f4f4f5; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; color: var(--dark); }
 
-        /* --- 10. SOCIAL PROOF (HORIZONTAL SWIPE) --- */
+        /* --- 10. TESTIMONIALS --- */
         .swipe-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 1.5rem;
-            padding-bottom: 1.5rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch; 
+            display: flex; overflow-x: auto; gap: 1.5rem; padding-bottom: 1.5rem;
+            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; 
         }
         .swipe-card {
-            min-width: 85vw; 
-            scroll-snap-align: center;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            min-width: 85vw; scroll-snap-align: center;
+            background: var(--white); padding: 2rem; border-radius: 16px; border: 1px solid #eee;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
         .swipe-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            border-top: 1px solid #f5f5f5;
-            padding-top: 1rem;
+            display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid #f5f5f5; padding-top: 1rem;
         }
         .swipe-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--mint-light);
+            width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--mint-light);
         }
         .swipe-quote { font-size: 1.05rem; font-style: italic; color: var(--text-gray); line-height: 1.6; }
         .swip-author { font-weight: 700; color: var(--dark); display: block; font-size: 0.95rem; }
         .swip-role { font-size: 0.8rem; color: var(--mint-hover); }
 
-        /* --- 11. STICKY MOBILE BUTTON --- */
-        .mobile-sticky-bar {
-            position: fixed;
-            bottom: 0; left: 0; width: 100%;
-            background: var(--white);
-            padding: 1rem;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-            z-index: 2000;
-            display: flex;
-            justify-content: center;
-        }
-        .mobile-btn {
-            background-color: var(--mint);
-            color: var(--white);
-            width: 100%;
-            max-width: 400px;
-            padding: 1rem;
-            text-align: center;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(24, 203, 150, 0.3);
-        }
-
-        /* --- 12. FOOTER --- */
-        footer { background-color: var(--dark); color: var(--white); padding: 4rem 1.5rem 7rem; text-align: center; }
+        /* --- 11. FOOTER & STICKY BUTTON --- */
+        footer { background-color: var(--dark); color: var(--white); padding: 4rem 1.5rem 4rem; text-align: center; }
         .footer-links a { color: rgba(255,255,255,0.7); display: block; margin-bottom: 1rem; text-decoration: none; }
         .footer-bottom { margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.3); text-align: right; }
 
+        /* Sticky Button */
+        .mobile-sticky-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: var(--white); padding: 1rem;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            z-index: 2000;
+            display: flex; justify-content: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        /* Class to hide sticky button */
+        .mobile-sticky-bar.hidden { transform: translateY(100%); }
+        
+        .mobile-btn {
+            background-color: var(--mint); color: var(--white); width: 100%; max-width: 400px;
+            padding: 1rem; text-align: center; border-radius: 50px; font-weight: 700;
+            text-decoration: none; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(24, 203, 150, 0.3);
+        }
+
         /* --- DESKTOP ENHANCEMENTS --- */
         @media (min-width: 900px) {
-            .mobile-sticky-bar { display: none; } 
+            .mobile-sticky-bar { display: none !important; } /* Never show on desktop */
             body { padding-bottom: 0; }
             .nav-menu { position: static; flex-direction: row; background: none; width: auto; padding: 0; box-shadow: none; left: 0; }
             .nav-menu a.nav-link { display: inline-block; padding: 0; margin-left: 2rem; color: rgba(255,255,255,0.8); }
@@ -345,12 +345,11 @@
             
             .section { padding: 6rem 1.5rem; }
             .hero h1 { font-size: 4rem; }
-            .comp-grid, .pricing-grid, .help-columns { grid-template-columns: repeat(3, 1fr); }
+            .comp-grid, .pricing-grid, .services-grid-box { grid-template-columns: repeat(3, 1fr); }
             .founder-container { text-align: left; display: flex; align-items: flex-start; gap: 4rem; }
             .founder-img { margin: 0; width: 300px; height: 300px; }
             .founder-stats { justify-content: flex-start; }
             
-            /* Desktop Grid for Testimonials */
             .swipe-container { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; padding-bottom: 0; }
             .swipe-card { min-width: auto; }
             
@@ -372,7 +371,7 @@
                 <a href="#reviews" class="nav-link">Reviews</a>
                 <a href="#contact" class="nav-link">Contact</a>
                 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700; margin-left: 2rem;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only">
                     Let’s Talk Growth
                 </a>
             </div>
@@ -388,9 +387,7 @@
     <header class="hero">
         <h1>Growth Partners for Early-Stage<br>and Scaling B2C Brands</h1>
         
-        <p class="subheadline">We help consumer brands fix growth fundamentals, scale Meta & Google profitably, and solve growth challenges across the funnel — with strategy, execution, and clear ownership.</p>
-        
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only" style="width: auto; display: inline-block; padding: 1rem 2.5rem;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="cta-btn desktop-only" style="display:inline-block;">
             Let’s Talk Growth
         </a>
         <p class="microcopy">We’ll review your details and suggest the right engagement.</p>
@@ -399,7 +396,6 @@
     <section class="marquee-section">
         <div class="marquee-title">Trusted by</div>
         <div class="marquee-track">
-            <img src="rummycircle.png" class="marquee-logo"><img src="byjus.png" class="marquee-logo"><img src="stimuler.png" class="marquee-logo"><img src="eternz.png" class="marquee-logo"><img src="limetray.png" class="marquee-logo">
             <img src="rummycircle.png" class="marquee-logo"><img src="byjus.png" class="marquee-logo"><img src="stimuler.png" class="marquee-logo"><img src="eternz.png" class="marquee-logo"><img src="limetray.png" class="marquee-logo">
             <img src="rummycircle.png" class="marquee-logo"><img src="byjus.png" class="marquee-logo"><img src="stimuler.png" class="marquee-logo"><img src="eternz.png" class="marquee-logo"><img src="limetray.png" class="marquee-logo">
         </div>
@@ -420,35 +416,22 @@
 
     <section class="section" id="services">
         <h2 class="section-title">How We Help Brands Grow</h2>
-        <div class="how-help-wrapper">
-            <p class="help-intro">growthHQ works with B2C brands to solve growth problems at different stages — from fixing fundamentals to scaling performance and managing complexity.</p>
+        <div class="services-wrapper">
+            <p class="services-intro">growthHQ works with B2C brands to solve growth problems at different stages — from fixing fundamentals to scaling performance and managing complexity.</p>
             
-            <div class="help-columns">
-                <div class="help-col">
-                    <h3>Typically we help brands that want to:</h3>
-                    <ul class="check-list problem-list">
-                        <li>Fix setup, tracking, and attribution</li>
-                        <li>Scale Meta & Google with stronger ROAS</li>
-                        <li>Solve growth challenges across marketing, CRO, and retention</li>
-                    </ul>
-                    <p style="margin-top: 1.5rem; font-weight: 700; color: var(--mint-hover);">We don’t offer generic services. We focus on what will move growth right now.</p>
-                </div>
-                
-                <div class="help-col">
-                    <h3>Based on your stage, we work across:</h3>
-                    <ul class="check-list problem-list">
-                        <li>Meta & Google Ads (strategy + execution)</li>
-                        <li>Conversion rate optimisation (CRO)</li>
-                        <li>Attribution & tracking</li>
-                        <li>Creative & communication strategy</li>
-                        <li>Retention & CRM (email, WhatsApp)</li>
-                        <li>Funnel analysis & prioritisation</li>
-                        <li>Growth experimentation & measurement</li>
-                    </ul>
-                </div>
+            <p style="text-align:center; font-weight:600; margin-bottom:1.5rem;">Based on your stage, we work across:</p>
+            
+            <div class="services-grid-box">
+                <div class="service-pill">Meta & Google Ads</div>
+                <div class="service-pill">Conversion Rate Optimisation</div>
+                <div class="service-pill">Attribution & Tracking</div>
+                <div class="service-pill">Creative Strategy</div>
+                <div class="service-pill">Retention & CRM</div>
+                <div class="service-pill">Funnel Analysis</div>
+                <div class="service-pill">Growth Experimentation</div>
             </div>
             
-            <p class="help-footer">Scope is tailored to your growth stage — not a fixed checklist.</p>
+            <div class="services-footer">Scope is tailored to your growth stage — not a fixed checklist.</div>
         </div>
     </section>
 
@@ -456,34 +439,31 @@
         <h2 class="section-title">Why Founders Choose <span class="brand-text">growth<span class="brand-hq">HQ</span></span></h2>
         <div class="comp-grid">
             <div class="comp-card bad">
-                <span class="comp-icon">❌</span>
                 <div class="comp-title">Typical Agency</div>
                 <div class="comp-subtitle">Works on % of ad spend</div>
-                <ul class="tier-list" style="font-size:0.9rem; color:#666;">
-                    <li style="padding-left:0;">Incentivised to push spend, not efficiency</li>
-                    <li style="padding-left:0;">Early accounts often under-serviced</li>
+                <ul class="comp-list">
+                    <li>Incentivised to push spend, not efficiency</li>
+                    <li>Early accounts often under-serviced</li>
                 </ul>
                 <div class="result-box result-bad">Result: Expensive mistakes & misalignment.</div>
             </div>
 
             <div class="comp-card bad">
-                <span class="comp-icon">❌</span>
                 <div class="comp-title">Hiring In-House</div>
                 <div class="comp-subtitle">Too Early</div>
-                <ul class="tier-list" style="font-size:0.9rem; color:#666;">
-                    <li style="padding-left:0;">Long ramp-up time</li>
-                    <li style="padding-left:0;">Needs constant guidance</li>
+                <ul class="comp-list">
+                    <li>Long ramp-up time</li>
+                    <li>Needs constant guidance</li>
                 </ul>
                 <div class="result-box result-bad">Result: Learning slows down, CAC spikes.</div>
             </div>
 
             <div class="comp-card good">
-                <span class="comp-icon">✅</span>
                 <div class="comp-title">growthHQ</div>
                 <div class="comp-subtitle" style="color: var(--mint);">Fixed monthly retainer</div>
-                <ul class="tier-list" style="font-size:0.9rem; color:#666;">
-                    <li style="padding-left:0;">Senior-led strategy + execution</li>
-                    <li style="padding-left:0;">Strong foundations before scaling</li>
+                <ul class="comp-list">
+                    <li>Senior-led strategy + execution</li>
+                    <li>Strong foundations before scaling</li>
                 </ul>
                 <div class="result-box result-good">Result: Faster clarity & sustainable growth.</div>
             </div>
@@ -495,58 +475,59 @@
         <p style="text-align: center; color: #666;">Transparent pricing to help you assess fit upfront.</p>
         
         <div class="pricing-grid">
-            <div class="pricing-card">
-                <div style="color: var(--mint);">🟢 <strong>Growth Foundation</strong></div>
+            <div class="pricing-card subtle-blue">
+                <div class="tier-header-blue">Growth Foundation</div>
                 <div class="tier-price">₹50k – ₹75k / mo</div>
-                <p style="font-size: 0.9rem; color: #888;">Best for: Early brands or broken setups</p>
+                <p class="tier-desc">Best for: Early brands or broken setups</p>
                 <ul class="tier-list">
                     <li>Tracking, attribution & pixel setup</li>
                     <li>Audit of campaigns & structure</li>
                     <li>Limited campaigns + monitoring</li>
                     <li>Up to 20 hours/month</li>
                 </ul>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green">Let’s Talk Growth</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-blue-outline">Request Growth Foundation</a>
             </div>
 
-            <div class="pricing-card popular">
+            <div class="pricing-card brand-green popular">
                 <div class="pop-badge">Most Popular</div>
-                <div style="color: #2d9cdb;">🔵 <strong>Growth Scale Partner</strong></div>
+                <div class="tier-header-green">Growth Scale Partner</div>
                 <div class="tier-price">₹1L – ₹1.5L / mo</div>
-                <p style="font-size: 0.9rem; color: #888;">Best for: Scaling Meta & Google</p>
+                <p class="tier-desc">Best for: Scaling Meta & Google</p>
                 <ul class="tier-list">
                     <li>Hands-on execution (Meta + Google)</li>
                     <li>Creative & audience A/B testing</li>
                     <li>Continuous optimisation & scaling</li>
                     <li>Weekly performance reviews</li>
                 </ul>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-blue">Let’s Talk Growth</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green">Let’s Talk Growth</a>
             </div>
 
-            <div class="pricing-card">
-                <div style="color: #9b51e0;">🟣 <strong>Growth Ownership</strong></div>
+            <div class="pricing-card subtle-blue">
+                <div class="tier-header-blue">Growth Ownership</div>
                 <div class="tier-price">₹2L – ₹2.5L / mo</div>
-                <p style="font-size: 0.9rem; color: #888;">Best for: Complex growth decisions</p>
+                <p class="tier-desc">Best for: Complex growth decisions</p>
                 <ul class="tier-list">
                     <li>Strategy + execution across levers</li>
                     <li>CRO, retention, CRM & attribution</li>
                     <li>Weekly founder working sessions</li>
                     <li>Holistic growth ownership</li>
                 </ul>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-purple">Let’s Talk Growth</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-blue-outline">Let’s Talk Growth</a>
             </div>
         </div>
     </section>
 
     <section class="section">
-        <h2 class="section-title">Who’s behind <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
+        <h2 class="section-title">Who’s Behind <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
         <div class="founder-container">
             <img src="snehitha.jpg" alt="Snehitha Avirneni" class="founder-img">
             <div style="flex:1;">
                 <p><strong>growthHQ is led by Snehitha Avirneni</strong>, a growth leader with 11+ years of experience scaling consumer internet and D2C businesses.</p>
                 <div class="founder-stats">
                     <span class="stat-pill">Managed ₹600 Cr+ Budgets</span>
-                    <span class="stat-pill">50%+ YoY Growth</span>
-                    <span class="stat-pill">Reduced CPA by 40%</span>
+                    <span class="stat-pill">3x ROAS</span>
+                    <span class="stat-pill">25% LTV Improvement</span>
+                    <span class="stat-pill">40% CAC Reduction</span>
                 </div>
                 <p>Every engagement is personally led by Snehitha. Execution is supported by a trusted network, but ownership always remains senior-led.</p>
                 <br>
@@ -559,7 +540,7 @@
         <h2 class="section-title">What Founders Say</h2>
         <div class="swipe-container">
             <div class="swipe-card">
-                <p class="swipe-quote">Snehitha was a huge help in shaping our growth... She brought a lot of clarity and momentum to the team, which we really appreciate. She was amazing to work with.</p>
+                <p class="swipe-quote">Snehitha brought a lot of clarity and momentum to our growth efforts. She was amazing to work with.</p>
                 <div class="swipe-header">
                     <img src="akshay.jpg" class="swipe-img" alt="Akshay">
                     <div>
@@ -622,7 +603,11 @@
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
         const navLink = document.querySelectorAll(".nav-link");
+        const stickyBar = document.querySelector('.mobile-sticky-bar');
+        const heroSection = document.querySelector('.hero');
+        const footerSection = document.querySelector('footer');
 
+        // Hamburger Menu Logic
         hamburger.addEventListener("click", () => {
             hamburger.classList.toggle("active");
             navMenu.classList.toggle("active");
@@ -632,6 +617,52 @@
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
         }));
+
+        // Sticky Button Visibility Logic
+        // Hide on Hero (Top) and Footer (Bottom)
+        const observerOptions = {
+            root: null,
+            threshold: 0.1 // Trigger when 10% of the target is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // If Hero OR Footer is visible, HIDE the sticky bar
+                    stickyBar.classList.add('hidden');
+                } else {
+                    // If we are scrolling in the middle (neither hero nor footer fully visible)
+                    // We need to check if ANY of them are visible. 
+                    // This simple toggle might flicker if both are visible. 
+                    // Better logic: Only SHOW if BOTH are NOT intersecting.
+                    checkVisibility();
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(heroSection);
+        observer.observe(footerSection);
+
+        function checkVisibility() {
+            const heroRect = heroSection.getBoundingClientRect();
+            const footerRect = footerSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Is Hero visible?
+            const isHeroVisible = heroRect.bottom > 0;
+            // Is Footer visible?
+            const isFooterVisible = footerRect.top < windowHeight;
+
+            if (isHeroVisible || isFooterVisible) {
+                stickyBar.classList.add('hidden');
+            } else {
+                stickyBar.classList.remove('hidden');
+            }
+        }
+
+        // Run check on scroll for smoother experience
+        window.addEventListener('scroll', checkVisibility);
+
     </script>
 
 </body>
