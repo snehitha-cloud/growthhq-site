@@ -21,12 +21,14 @@
         :root {
             --mint: #18cb96;
             --dark: #2e2e3a;
-            --deep-navy: #021e44; /* Requested Menu Color */
+            --deep-navy: #021e44; 
             --text-gray: #555560;
             --white: #ffffff;
             --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f9fbfb 100%);
+            --danger-text: #c53030;
             --success-bg: #f0fdf9;
             --success-text: #0d8a6a;
+            --tier-2: #2d9cdb;
         }
         
         * { box-sizing: border-box; scroll-behavior: smooth; }
@@ -41,26 +43,15 @@
             overflow-x: hidden;
         }
 
-        /* --- 1. FIRST FOLD CONTAINER --- */
-        .first-scroll-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; 
-            height: 100vh; 
-            height: 100dvh; 
-            min-height: 600px; 
-        }
-
-        /* --- 2. NAVIGATION (Deep Navy #021e44) --- */
+        /* --- 1. NAVIGATION (Sticky Fixed) --- */
         header.nav-header {
+            position: sticky; /* Keeps it stuck to top */
+            top: 0;
+            background-color: var(--deep-navy);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            z-index: 9999;
             width: 100%;
             padding: 0.8rem 4%; 
-            z-index: 9999;
-            position: sticky;
-            top: 0;
-            /* FIXED: Applied requested color */
-            background-color: var(--deep-navy); 
-            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .nav-container {
@@ -72,7 +63,7 @@
         }
         
         .nav-logo-link img { 
-            height: 48px; 
+            height: 52px; 
             width: auto; 
             display: block;
             object-fit: contain; 
@@ -82,22 +73,18 @@
         .hamburger { display: block; cursor: pointer; z-index: 10001; }
         .bar { 
             display: block; width: 30px; height: 3px; margin: 6px auto; 
-            transition: 0.3s; 
-            /* FIXED: White bars to contrast with Navy header */
-            background-color: white; 
-            border-radius: 2px; 
+            transition: 0.3s; background-color: white; border-radius: 2px; 
         }
         .hamburger.active .bar:nth-child(2) { opacity: 0; }
         .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-        /* MOBILE MENU (Deep Navy) */
+        /* NAV MENU */
         .nav-menu {
             position: fixed; left: -100%; top: 73px; width: 100%;
-            /* FIXED: Matches Header Color */
             background-color: var(--deep-navy); 
-            flex-direction: column;
-            text-align: center; transition: 0.3s; padding: 2rem 0;
+            flex-direction: column; text-align: center;
+            transition: 0.3s; padding: 2rem 0;
             box-shadow: 0 10px 10px rgba(0,0,0,0.2); display: flex; gap: 0; z-index: 10000;
         }
         .nav-menu.active { left: 0; } 
@@ -111,21 +98,17 @@
         .mobile-br { display: block; }
         .desktop-br { display: none; }
 
-        /* --- 3. HERO SECTION --- */
+        /* --- 2. HERO SECTION (Compact Mobile Layout) --- */
         .hero { 
             text-align: center; 
-            flex-grow: 1; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center; 
-            padding: 0 1rem; 
+            /* Reduced padding on mobile to pull content up */
+            padding: 2.5rem 1rem 1rem; 
         }
         
         .hero h1 { 
             font-family: 'Hero', 'Inter', sans-serif;
             font-weight: 800;
-            font-size: 32px; 
+            font-size: 36px;       
             line-height: 1.15;     
             letter-spacing: -0.02em; 
             margin: 0 auto; 
@@ -145,36 +128,39 @@
         .hero .btn-style {
             display: inline-block !important; 
             width: auto !important;           
-            padding: 1rem 2.5rem; 
-            font-size: 1rem;
-            margin-top: 5vh; 
+            padding: 1.2rem 3rem; 
+            font-size: 1.1rem;
+            /* FIXED GAP: 3rem is spacious but fits on screen */
+            margin-top: 3rem; 
         }
+
+        .pricing-card .btn-style { display: block; width: 100%; }
 
         .btn-green { background-color: var(--mint); color: white; box-shadow: 0 4px 15px rgba(24, 203, 150, 0.25); }
         .btn-deep-navy { background-color: var(--deep-navy); color: white; box-shadow: 0 4px 15px rgba(2, 30, 68, 0.2); }
-        
-        .microcopy { font-size: 0.8rem; color: #888; margin-top: 0.8rem; display: block; }
+        .btn-linkedin { background-color: var(--deep-navy); color: white; width: auto; display: inline-block; padding: 0.8rem 2rem; font-size: 0.95rem; }
 
-        /* --- 4. TRUST SIGNALS --- */
+        .microcopy { font-size: 0.85rem; color: #888; margin-top: 1rem; display: block; }
+
+        /* --- 3. TRUST SIGNALS (Compacted for First Fold) --- */
         .marquee-section {
+            /* Tight top padding pulls it above the fold */
             padding: 1.5rem 0 2rem; 
             background: var(--white);
             border-bottom: 1px solid #f0f0f0;
             overflow: hidden;
-            flex-shrink: 0; 
         }
         .marquee-title {
-            text-align: center; font-size: 0.7rem; text-transform: uppercase;
-            letter-spacing: 1.5px; color: #aaa; margin-bottom: 0.8rem; font-weight: 700;
+            text-align: center; font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 1.5px; color: #aaa; margin-bottom: 1rem; font-weight: 700;
         }
         .marquee-track {
             display: flex; width: max-content; animation: scroll 30s linear infinite; align-items: center;
         }
         .marquee-logo {
-            height: 30px; 
-            width: auto; margin: 0 1rem; filter: grayscale(100%); opacity: 0.6; object-fit: contain;
+            height: 35px; width: auto; margin: 0 1.5rem; filter: grayscale(100%); opacity: 0.6; object-fit: contain;
         }
-        .logo-eternz { height: 24px; } .logo-byjus { height: 34px; } .logo-limetray { height: 36px; }
+        .logo-eternz { height: 26px; } .logo-byjus { height: 39px; } .logo-limetray { height: 42px; }
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
@@ -230,7 +216,12 @@
         /* --- DESKTOP ENHANCEMENTS --- */
         @media (min-width: 900px) {
             .mobile-sticky-bar { display: none !important; } 
+            body { padding-bottom: 0; }
             
+            .mobile-br { display: none; }
+            .desktop-br { display: block; }
+            
+            /* Desktop Navigation */
             .nav-header { padding: 0.8rem 4%; }
             .nav-logo-link img { height: 55px; } 
             .hamburger { display: none; }
@@ -241,14 +232,24 @@
                 gap: 2rem; display: flex !important; 
             }
             .nav-menu a.nav-link { display: inline-block; padding: 0; color: rgba(255,255,255,0.8); }
+            .nav-cta.desktop-only { display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; }
             .desktop-only { display: inline-block; }
-            .mobile-br { display: none; }
-            .desktop-br { display: block; }
 
-            .hero h1 { font-size: 4rem; max-width: 1200px; }
-            .hero .btn-style { padding: 1.2rem 3.5rem; margin-top: 4.5rem; font-size: 1.1rem; }
+            /* Desktop Hero */
+            .hero { padding: 4rem 1.5rem 2rem; }
+            .hero h1 { 
+                font-size: 4rem; margin-bottom: 0.5rem; max-width: 1200px; 
+                font-family: 'Inter', sans-serif; letter-spacing: -0.02em;
+            }
             
-            .marquee-section { padding: 2rem 0; }
+            /* Larger gap on Desktop */
+            .hero .btn-style { 
+                padding: 1.2rem 3.5rem; 
+                margin-top: 5rem;     
+                font-size: 1.1rem;
+            }
+            
+            .marquee-section { padding: 3rem 0; } /* More padding on desktop */
             .marquee-logo { height: 40px; margin: 0 2rem; }
             .logo-eternz { height: 32px; } .logo-byjus { height: 44px; } .logo-limetray { height: 48px; }
 
@@ -267,63 +268,60 @@
 </head>
 <body>
 
-    <div class="first-scroll-wrapper">
-        
-        <header class="nav-header">
-            <div class="nav-container">
-                <a href="#" class="nav-logo-link">
-                    <img src="logo.png" alt="growthHQ">
-                </a>
-                
-                <div class="nav-menu">
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#pricing" class="nav-link">Engagement Models</a>
-                    <a href="#reviews" class="nav-link">Reviews</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700;">
-                        Let’s Talk Growth
-                    </a>
-                </div>
-
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </header>
-
-        <section class="hero">
-            <h1>
-                Growth Partner for<span class="mobile-br"></span>
-                Early-Stage <span class="desktop-br"></span>
-                and<span class="mobile-br"></span>
-                Scaling B2C Brands
-            </h1>
-            
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only">
-                Let’s Talk Growth
+    <header class="nav-header">
+        <div class="nav-container">
+            <a href="#" class="nav-logo-link">
+                <img src="logo.png" alt="growthHQ - B2C Growth Agency Logo">
             </a>
-            <p class="microcopy">We’ll review your details and suggest the right engagement.</p>
-        </section>
-
-        <section class="marquee-section">
-            <div class="marquee-title">Trusted By</div>
-            <div class="marquee-track">
-                <img src="rummycircle.png" class="marquee-logo">
-                <img src="byjus.png" class="marquee-logo logo-byjus">
-                <img src="stimuler.png" class="marquee-logo">
-                <img src="eternz.png" class="marquee-logo logo-eternz">
-                <img src="limetray.png" class="marquee-logo logo-limetray">
-                
-                <img src="rummycircle.png" class="marquee-logo">
-                <img src="byjus.png" class="marquee-logo logo-byjus">
-                <img src="stimuler.png" class="marquee-logo">
-                <img src="eternz.png" class="marquee-logo logo-eternz">
-                <img src="limetray.png" class="marquee-logo logo-limetray">
+            
+            <div class="nav-menu">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#pricing" class="nav-link">Engagement Models</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700;">
+                    Let’s Talk Growth
+                </a>
             </div>
-        </section>
-    </div> 
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>
+            Growth Partner for<span class="mobile-br"></span>
+            Early-Stage <span class="desktop-br"></span>
+            and<span class="mobile-br"></span>
+            Scaling B2C Brands
+        </h1>
+        
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only">
+            Let’s Talk Growth
+        </a>
+        <p class="microcopy">We’ll review your details and suggest the right engagement.</p>
+    </section>
+
+    <section class="marquee-section">
+        <div class="marquee-title">Trusted By</div>
+        <div class="marquee-track">
+            <img src="rummycircle.png" class="marquee-logo">
+            <img src="byjus.png" class="marquee-logo logo-byjus">
+            <img src="stimuler.png" class="marquee-logo">
+            <img src="eternz.png" class="marquee-logo logo-eternz">
+            <img src="limetray.png" class="marquee-logo logo-limetray">
+            
+            <img src="rummycircle.png" class="marquee-logo">
+            <img src="byjus.png" class="marquee-logo logo-byjus">
+            <img src="stimuler.png" class="marquee-logo">
+            <img src="eternz.png" class="marquee-logo logo-eternz">
+            <img src="limetray.png" class="marquee-logo logo-limetray">
+        </div>
+    </section>
 
     <section class="section">
         <h2 class="section-title">Is <span class="brand-text">growth<span class="brand-hq">HQ</span></span> Right For You?</h2>
@@ -528,12 +526,41 @@
         </a>
     </div>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "growthHQ",
+      "image": "https://growthhq.in/logo.png",
+      "@id": "https://growthhq.in",
+      "url": "https://growthhq.in",
+      "telephone": "", 
+      "email": "snehitha@growthhq.in",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "addressCountry": "IN"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Snehitha Avirneni",
+        "sameAs": "https://www.linkedin.com/in/snehithaavirneni/"
+      },
+      "description": "Growth partner for early-stage and scaling B2C brands. Specializing in performance marketing, CRO, and retention.",
+      "sameAs": [
+        "https://www.linkedin.com/in/snehithaavirneni/"
+      ],
+      "priceRange": "$$"
+    }
+    </script>
+
     <script>
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
         const navLink = document.querySelectorAll(".nav-link");
         const stickyBar = document.querySelector('.mobile-sticky-bar');
-        const firstScroll = document.querySelector('.first-scroll-wrapper');
+        const heroSection = document.querySelector('.hero');
         const footerSection = document.querySelector('footer');
 
         hamburger.addEventListener("click", () => {
@@ -561,11 +588,11 @@
             });
         }, observerOptions);
 
-        observer.observe(firstScroll);
+        observer.observe(heroSection);
         observer.observe(footerSection);
 
         function checkVisibility() {
-            const heroRect = firstScroll.getBoundingClientRect();
+            const heroRect = heroSection.getBoundingClientRect();
             const footerRect = footerSection.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
@@ -580,6 +607,7 @@
         }
 
         window.addEventListener('scroll', checkVisibility);
+
     </script>
 
 </body>
