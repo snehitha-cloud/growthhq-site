@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>growthHQ | Growth Partner for Early-Stage & Scaling B2C Brands</title>
+    <meta name="description" content="growthHQ helps consumer brands fix growth fundamentals, scale Meta & Google ads profitably, and solve challenges across the funnel. Founder-led growth by Snehitha Avirneni.">
+    <meta name="keywords" content="B2C Growth Consultant, Performance Marketing Agency, Fractional CMO India, Growth Hacking, Meta Ads Expert, Google Ads Strategy, D2C Growth Partner">
+    <meta name="author" content="Snehitha Avirneni">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://growthhq.in/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://growthhq.in/">
+    <meta property="og:title" content="growthHQ | Growth Partner for Early-Stage & Scaling B2C Brands">
+    <meta property="og:description" content="We help consumer brands fix growth fundamentals and scale profitably. Founder-led execution by Snehitha Avirneni.">
+    <meta property="og:image" content="https://growthhq.in/og-image.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="growthHQ | B2C Growth Partner">
+    <meta property="twitter:description" content="We help consumer brands fix growth fundamentals and scale profitably.">
+    <meta property="twitter:image" content="https://growthhq.in/og-image.jpg">
+
+    <link rel="icon" type="image/png" href="favicon.png"> 
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --mint: #18cb96;
@@ -34,21 +56,16 @@
             padding-bottom: 80px; 
         }
 
-        /* --- 1. FIRST SCROLL WRAPPER --- */
-        .first-scroll-wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 90vh; 
-        }
-
-        /* --- 2. NAVIGATION --- */
+        /* --- 1. NAVIGATION (Sticky) --- */
         header.nav-header {
             position: sticky;
             top: 0;
             background: var(--dark);
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            z-index: 1000;
-            padding: 0.6rem 5%;
+            z-index: 2000; /* High Z-Index to stay on top */
+            
+            /* MOBILE: Wider appearance */
+            padding: 0.8rem 4%; 
             flex-shrink: 0; 
         }
         .nav-container {
@@ -58,8 +75,10 @@
             justify-content: space-between;
             align-items: center;
         }
+        
         .nav-logo-link img { 
-            height: 40px;
+            /* MOBILE: Logo Size */
+            height: 52px; 
             width: auto; 
             display: block;
             object-fit: contain; 
@@ -67,16 +86,24 @@
         
         /* Mobile Hamburger */
         .hamburger { display: block; cursor: pointer; }
-        .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.3s; background-color: white; border-radius: 2px; }
+        .bar { 
+            display: block; 
+            width: 30px; 
+            height: 3px; 
+            margin: 6px auto; 
+            transition: 0.3s; 
+            background-color: white; 
+            border-radius: 2px; 
+        }
         .hamburger.active .bar:nth-child(2) { opacity: 0; }
-        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
         /* Mobile Menu */
         .nav-menu {
             position: fixed;
             left: -100%;
-            top: 65px;
+            top: 75px; 
             width: 100%;
             background-color: var(--dark);
             flex-direction: column;
@@ -99,11 +126,14 @@
         
         .desktop-only { display: none; }
         
-        /* Line Break Controls */
-        .mobile-br { display: block; }
-        .desktop-br { display: none; }
+        /* --- 2. FIRST SCROLL WRAPPER --- */
+        .first-scroll-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 90vh; 
+        }
 
-        /* --- 3. HERO SECTION (Mobile Defaults) --- */
+        /* --- 3. HERO SECTION & HEADLINE BREAKS --- */
         .hero { 
             text-align: center; 
             flex-grow: 1; 
@@ -115,17 +145,21 @@
         }
         
         .hero h1 { 
-            /* MOBILE STYLING REQUESTED */
-            font-family: 'Hero', 'Inter', sans-serif; /* Brand font with fallback */
+            font-family: 'Hero', 'Inter', sans-serif;
             font-weight: 700;
-            font-size: 36px;       /* Specific Mobile Size */
-            line-height: 1.15;     /* Crisp, compact stacking */
-            letter-spacing: -0.02em; /* Tighter spacing */
+            font-size: 36px;       
+            line-height: 1.15;     
+            letter-spacing: -0.02em; 
             
             margin: 0 auto 0; 
             max-width: 1200px; 
             color: var(--dark);
+            /* Removed 'text-wrap: balance' to enforce strict manual breaks */
         }
+        
+        /* Line Break Logic */
+        .mobile-br { display: block; }
+        .desktop-br { display: none; }
         
         /* --- BUTTON STYLES --- */
         .btn-style {
@@ -145,11 +179,8 @@
         .hero .btn-style {
             display: inline-block !important; 
             width: auto !important;           
-            
             padding: 1.2rem 3rem; 
             font-size: 1.1rem;
-            
-            /* INCREASED GAP FOR MOBILE (3.5rem) */
             margin-top: 3.5rem; 
         }
 
@@ -167,9 +198,7 @@
 
         /* --- 4. TRUST SIGNALS (Mobile) --- */
         .marquee-section {
-            /* INCREASED TOP PADDING to push down section */
             padding: 3.5rem 0 2rem;
-            
             background: var(--white);
             border-bottom: 1px solid #f0f0f0;
             overflow: hidden;
@@ -233,7 +262,7 @@
         .qual-footer { margin-top: 1.5rem; font-weight: 700; color: var(--mint); text-align: center; }
 
         /* --- 7. SERVICES --- */
-        .services-wrapper { max-width: 800px; margin: auto; }
+        .services-wrapper { max-width: 1150px; margin: auto; }
         .services-intro { text-align: center; margin-bottom: 2rem; font-size: 1.05rem; }
         .services-grid-box {
             display: grid;
@@ -368,9 +397,8 @@
             /* Restore 100vh for desktop */
             .first-scroll-wrapper { min-height: 100vh; }
             
-            .nav-header { padding: 0.8rem 5%; }
-            /* LOGO SIZE INCREASED (Desktop) */
-            .nav-logo-link img { height: 55px; }
+            .nav-header { padding: 0.8rem 4%; } 
+            .nav-logo-link img { height: 55px; } /* Desktop Logo Size */
 
             .nav-menu { 
                 position: static; 
@@ -406,12 +434,11 @@
                 font-size: 4rem; 
                 margin-bottom: 0.5rem; 
                 max-width: 1200px; 
-                /* Reset mobile font properties */
                 font-family: 'Inter', sans-serif;
                 letter-spacing: -0.02em;
             }
             
-            /* HERO BUTTON SPACING RESTORE */
+            /* HERO BUTTON SPACING */
             .hero .btn-style { 
                 padding: 1.2rem 3.5rem; 
                 margin-top: 4.5rem;     
@@ -426,7 +453,9 @@
 
             .section { padding: 4rem 1.5rem; } 
             
-            .comp-grid, .pricing-grid, .services-grid-box { grid-template-columns: repeat(3, 1fr); }
+            .comp-grid, .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+            .services-grid-box { grid-template-columns: repeat(4, 1fr); } 
+            
             .founder-container { text-align: left; display: flex; align-items: flex-start; gap: 4rem; }
             .founder-img { margin: 0; width: 300px; height: 300px; }
             .founder-stats { justify-content: flex-start; }
@@ -441,250 +470,248 @@
 </head>
 <body>
 
-    <div class="first-scroll-wrapper">
-        
-        <header class="nav-header">
-            <div class="nav-container">
-                <a href="#" class="nav-logo-link">
-                    <img src="logo.png" alt="growthHQ">
-                </a>
-                
-                <div class="nav-menu">
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#pricing" class="nav-link">Engagement Models</a>
-                    <a href="#reviews" class="nav-link">Reviews</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                    
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700;">
-                        Let’s Talk Growth
-                    </a>
-                </div>
-
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </header>
-
-        <header class="hero">
-            <h1>
-                Growth Partner for<br class="mobile-br">
-                Early-Stage and<br class="mobile-br">
-                <br class="desktop-br"> 
-                Scaling B2C Brands
-            </h1>
-            
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only">
-                Let’s Talk Growth
+    <header class="nav-header">
+        <div class="nav-container">
+            <a href="#" class="nav-logo-link">
+                <img src="logo.png" alt="growthHQ - B2C Growth Agency Logo">
             </a>
-            <p class="microcopy">We’ll review your details and suggest the right engagement.</p>
-        </header>
-
-        <section class="marquee-section">
-            <div class="marquee-title">Trusted By</div>
-            <div class="marquee-track">
-                <img src="rummycircle.png" class="marquee-logo">
-                <img src="byjus.png" class="marquee-logo logo-byjus">
-                <img src="stimuler.png" class="marquee-logo">
-                <img src="eternz.png" class="marquee-logo logo-eternz">
-                <img src="limetray.png" class="marquee-logo logo-limetray">
+            
+            <div class="nav-menu">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#pricing" class="nav-link">Engagement Models</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
                 
-                <img src="rummycircle.png" class="marquee-logo">
-                <img src="byjus.png" class="marquee-logo logo-byjus">
-                <img src="stimuler.png" class="marquee-logo">
-                <img src="eternz.png" class="marquee-logo logo-eternz">
-                <img src="limetray.png" class="marquee-logo logo-limetray">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700;">
+                    Let’s Talk Growth
+                </a>
+            </div>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="first-scroll-wrapper">
+            
+            <header class="hero">
+                <h1>
+                    Growth Partner for<span class="mobile-br"></span> Early-Stage <span class="desktop-br"></span> and<span class="mobile-br"></span> Scaling B2C Brands
+                </h1>
+                
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only">
+                    Let’s Talk Growth
+                </a>
+                <p class="microcopy">We’ll review your details and suggest the right engagement.</p>
+            </header>
+
+            <section class="marquee-section">
+                <div class="marquee-title">Trusted By</div>
+                <div class="marquee-track">
+                    <img src="rummycircle.png" class="marquee-logo">
+                    <img src="byjus.png" class="marquee-logo logo-byjus">
+                    <img src="stimuler.png" class="marquee-logo">
+                    <img src="eternz.png" class="marquee-logo logo-eternz">
+                    <img src="limetray.png" class="marquee-logo logo-limetray">
+                    
+                    <img src="rummycircle.png" class="marquee-logo">
+                    <img src="byjus.png" class="marquee-logo logo-byjus">
+                    <img src="stimuler.png" class="marquee-logo">
+                    <img src="eternz.png" class="marquee-logo logo-eternz">
+                    <img src="limetray.png" class="marquee-logo logo-limetray">
+                </div>
+            </section>
+        </div> 
+
+        <section class="section">
+            <h2 class="section-title">Is <span class="brand-text">growth<span class="brand-hq">HQ</span></span> Right For You?</h2>
+            <div class="qual-box">
+                <ul class="check-list">
+                    <li>You’re spending or planning to spend on Meta & Google</li>
+                    <li>You want better ROAS, not just higher spends</li>
+                    <li>You don’t want to hire too early or work with a generic agency</li>
+                    <li>You want senior ownership, not trial-and-error execution</li>
+                </ul>
+                <div class="qual-footer">If this sounds like you, keep going. ↓</div>
             </div>
         </section>
-        
-    </div> 
 
-    <section class="section">
-        <h2 class="section-title">Is <span class="brand-text">growth<span class="brand-hq">HQ</span></span> Right For You?</h2>
-        <div class="qual-box">
-            <ul class="check-list">
-                <li>You’re spending or planning to spend on Meta & Google</li>
-                <li>You want better ROAS, not just higher spends</li>
-                <li>You don’t want to hire too early or work with a generic agency</li>
-                <li>You want senior ownership, not trial-and-error execution</li>
-            </ul>
-            <div class="qual-footer">If this sounds like you, keep going. ↓</div>
-        </div>
-    </section>
+        <section class="section" id="services">
+            <h2 class="section-title">How We Help Brands Grow?</h2>
+            <div class="services-wrapper">
+                <p class="services-intro">growthHQ works with B2C brands to solve growth problems at different stages — from fixing fundamentals to scaling performance and managing complexity.</p>
+                
+                <div class="services-grid-box">
+                    <div class="service-pill">Meta & Google Ads</div>
+                    <div class="service-pill">Conversion Rate Optimisation</div>
+                    <div class="service-pill">Attribution & Tracking</div>
+                    <div class="service-pill">Marketplace Management</div>
+                    <div class="service-pill">Creative Strategy</div>
+                    <div class="service-pill">Retention & CRM</div>
+                    <div class="service-pill">Funnel Analysis</div>
+                    <div class="service-pill">Growth Experimentation</div>
+                    <div class="service-pill">Influencer Marketing</div>
+                </div>
+            </div>
+        </section>
 
-    <section class="section" id="services">
-        <h2 class="section-title">How We Help Brands Grow?</h2>
-        <div class="services-wrapper">
-            <p class="services-intro">growthHQ works with B2C brands to solve growth problems at different stages — from fixing fundamentals to scaling performance and managing complexity.</p>
+        <section class="section" id="pricing">
+            <h2 class="section-title">Engagement Models</h2>
+            <p style="text-align: center; color: #666;">Transparent pricing to help you assess fit upfront.</p>
             
-            <div class="services-grid-box">
-                <div class="service-pill">Meta & Google Ads</div>
-                <div class="service-pill">Conversion Rate Optimisation</div>
-                <div class="service-pill">Attribution & Tracking</div>
-                <div class="service-pill">Creative Strategy</div>
-                <div class="service-pill">Retention & CRM</div>
-                <div class="service-pill">Funnel Analysis</div>
-                <div class="service-pill">Growth Experimentation</div>
-                <div class="service-pill">Influencer Marketing</div>
-                <div class="service-pill">Marketplace Management</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="pricing">
-        <h2 class="section-title">Engagement Models</h2>
-        <p style="text-align: center; color: #666;">Transparent pricing to help you assess fit upfront.</p>
-        
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="tier-header-navy">Growth Foundation</div>
-                <div class="tier-price">₹50k – ₹75k / mo</div>
-                <p class="tier-desc">Best for: Early brands or broken setups</p>
-                <ul class="tier-list">
-                    <li>Tracking, attribution & pixel setup</li>
-                    <li>Audit of campaigns & structure</li>
-                    <li>Limited campaigns + monitoring</li>
-                    <li>Up to 20 hours/month</li>
-                </ul>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-deep-navy">Let’s Talk Growth</a>
-            </div>
-
-            <div class="pricing-card brand-green popular">
-                <div class="pop-badge">Most Popular</div>
-                <div class="tier-header-green">Growth Scale Partner</div>
-                <div class="tier-price">₹1L – ₹1.5L / mo</div>
-                <p class="tier-desc">Best for: Scaling Meta & Google</p>
-                <ul class="tier-list">
-                    <li>Hands-on execution (Meta + Google)</li>
-                    <li>Creative & audience A/B testing</li>
-                    <li>Continuous optimisation & scaling</li>
-                    <li>Weekly performance reviews</li>
-                </ul>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green">Let’s Talk Growth</a>
-            </div>
-
-            <div class="pricing-card">
-                <div class="tier-header-navy">Growth Ownership</div>
-                <div class="tier-price">₹2L – ₹2.5L / mo</div>
-                <p class="tier-desc">Best for: Complex growth decisions</p>
-                <ul class="tier-list">
-                    <li>Strategy + execution across levers</li>
-                    <li>CRO, retention, CRM & attribution</li>
-                    <li>Weekly founder working sessions</li>
-                    <li>Holistic growth ownership</li>
-                </ul>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-deep-navy">Let’s Talk Growth</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 class="section-title">Why Founders Choose <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
-        <div class="comp-grid">
-            <div class="comp-card bad">
-                <div class="comp-title">Typical Agency</div>
-                <div class="comp-subtitle">Works on ad spend commission</div>
-                <ul class="comp-list">
-                    <li>Incentivised to push spend, not efficiency</li>
-                    <li>Early accounts often under-serviced</li>
-                </ul>
-                <div class="result-box result-bad">Result: Expensive mistakes & misalignment.</div>
-            </div>
-
-            <div class="comp-card bad">
-                <div class="comp-title">Hiring In-House</div>
-                <div class="comp-subtitle">Too Early</div>
-                <ul class="comp-list">
-                    <li>Long ramp-up time</li>
-                    <li>Needs constant guidance</li>
-                </ul>
-                <div class="result-box result-bad">Result: Learning slows down, CAC spikes.</div>
-            </div>
-
-            <div class="comp-card good">
-                <div class="comp-title">growthHQ</div>
-                <div class="comp-subtitle" style="color: var(--mint);">Fixed monthly retainer</div>
-                <ul class="comp-list">
-                    <li>Senior-led strategy + execution</li>
-                    <li>Strong foundations before scaling</li>
-                </ul>
-                <div class="result-box result-good">Result: Faster clarity & sustainable growth.</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2 class="section-title">Who’s behind <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
-        <div class="founder-container">
-            <img src="Snehitha.jpg" alt="Snehitha Avirneni" class="founder-img">
-            <div style="flex:1;">
-                <p><strong>growthHQ is led by Snehitha Avirneni</strong>, a growth leader with 11+ years of experience scaling consumer internet and D2C businesses.</p>
-                <div class="founder-stats">
-                    <span class="stat-pill">Managed ₹600 Cr+ Budgets</span>
-                    <span class="stat-pill">3x ROAS</span>
-                    <span class="stat-pill">25% LTV Lift</span>
-                    <span class="stat-pill">40% CAC Reduction</span>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="tier-header-navy">Growth Foundation</div>
+                    <div class="tier-price">₹50k – ₹75k / mo</div>
+                    <p class="tier-desc">Best for: Early brands or broken setups</p>
+                    <ul class="tier-list">
+                        <li>Tracking, attribution & pixel setup</li>
+                        <li>Audit of campaigns & structure</li>
+                        <li>Limited campaigns + monitoring</li>
+                        <li>Up to 20 hours/month</li>
+                    </ul>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-deep-navy">Let’s Talk Growth</a>
                 </div>
-                <p>Every engagement is personally led by Snehitha. Execution is supported by a trusted network, but ownership always remains senior-led.</p>
-                <br>
-                <a href="https://www.linkedin.com/in/snehithaavirneni/" target="_blank" class="btn-style btn-linkedin">
-                    View LinkedIn Profile →
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <div id="reviews" class="section">
-        <h2 class="section-title">What Founders Say</h2>
-        <div class="swipe-container">
-            <div class="swipe-card">
-                <p class="swipe-quote">Snehitha brought a lot of clarity and momentum to our growth efforts. She was amazing to work with.</p>
-                <div class="swipe-header">
-                    <img src="akshay.jpg" class="swipe-img" alt="Akshay">
-                    <div>
-                        <span class="swip-author">Akshay Akash</span>
-                        <span class="swip-role">CEO, Stimuler</span>
+                <div class="pricing-card brand-green popular">
+                    <div class="pop-badge">Most Popular</div>
+                    <div class="tier-header-green">Growth Scale Partner</div>
+                    <div class="tier-price">₹1L – ₹1.5L / mo</div>
+                    <p class="tier-desc">Best for: Scaling Meta & Google</p>
+                    <ul class="tier-list">
+                        <li>Hands-on execution (Meta + Google)</li>
+                        <li>Creative & audience A/B testing</li>
+                        <li>Continuous optimisation & scaling</li>
+                        <li>Weekly performance reviews</li>
+                    </ul>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green">Let’s Talk Growth</a>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="tier-header-navy">Growth Ownership</div>
+                    <div class="tier-price">₹2L – ₹2.5L / mo</div>
+                    <p class="tier-desc">Best for: Complex growth decisions</p>
+                    <ul class="tier-list">
+                        <li>Strategy + execution across levers</li>
+                        <li>CRO, retention, CRM & attribution</li>
+                        <li>Weekly founder working sessions</li>
+                        <li>Holistic growth ownership</li>
+                    </ul>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-deep-navy">Let’s Talk Growth</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Why Founders Choose <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
+            <div class="comp-grid">
+                <div class="comp-card bad">
+                    <div class="comp-title">Typical Agency</div>
+                    <div class="comp-subtitle">Works on ad spend commission</div>
+                    <ul class="comp-list">
+                        <li>Incentivised to push spend, not efficiency</li>
+                        <li>Early accounts often under-serviced</li>
+                    </ul>
+                    <div class="result-box result-bad">Result: Expensive mistakes & misalignment.</div>
+                </div>
+
+                <div class="comp-card bad">
+                    <div class="comp-title">Hiring In-House</div>
+                    <div class="comp-subtitle">Too Early</div>
+                    <ul class="comp-list">
+                        <li>Long ramp-up time</li>
+                        <li>Needs constant guidance</li>
+                    </ul>
+                    <div class="result-box result-bad">Result: Learning slows down, CAC spikes.</div>
+                </div>
+
+                <div class="comp-card good">
+                    <div class="comp-title">growthHQ</div>
+                    <div class="comp-subtitle" style="color: var(--mint);">Fixed monthly retainer</div>
+                    <ul class="comp-list">
+                        <li>Senior-led strategy + execution</li>
+                        <li>Strong foundations before scaling</li>
+                    </ul>
+                    <div class="result-box result-good">Result: Faster clarity & sustainable growth.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Who’s behind <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
+            <div class="founder-container">
+                <img src="Snehitha.jpg" alt="Snehitha Avirneni - Growth Consultant and Founder of growthHQ" class="founder-img">
+                <div style="flex:1;">
+                    <p><strong>growthHQ is led by Snehitha Avirneni</strong>, a growth leader with 11+ years of experience scaling consumer internet and D2C businesses.</p>
+                    <div class="founder-stats">
+                        <span class="stat-pill">Managed ₹600 Cr+ Budgets</span>
+                        <span class="stat-pill">3x ROAS</span>
+                        <span class="stat-pill">25% LTV Lift</span>
+                        <span class="stat-pill">40% CAC Reduction</span>
+                    </div>
+                    <p>Every engagement is personally led by Snehitha. Execution is supported by a trusted network, but ownership always remains senior-led.</p>
+                    <br>
+                    <a href="https://www.linkedin.com/in/snehithaavirneni/" target="_blank" class="btn-style btn-linkedin">
+                        View LinkedIn Profile →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div id="reviews" class="section">
+            <h2 class="section-title">What Founders Say</h2>
+            <div class="swipe-container">
+                <div class="swipe-card">
+                    <p class="swipe-quote">Snehitha brought a lot of clarity and momentum to our growth efforts. She was amazing to work with.</p>
+                    <div class="swipe-header">
+                        <img src="akshay.jpg" class="swipe-img" alt="Akshay">
+                        <div>
+                            <span class="swip-author">Akshay Akash</span>
+                            <span class="swip-role">CEO, Stimuler</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="swipe-card">
-                <p class="swipe-quote">Deep understanding of the problem and very effective solutions. Would strongly recommend working with her.</p>
-                <div class="swipe-header">
-                    <img src="shilpi.jpg" class="swipe-img" alt="Shilpi">
-                    <div>
-                        <span class="swip-author">Shilpi Boylla</span>
-                        <span class="swip-role">Head of Design, Datatribe</span>
+                <div class="swipe-card">
+                    <p class="swipe-quote">Deep understanding of the problem and very effective solutions. Would strongly recommend working with her.</p>
+                    <div class="swipe-header">
+                        <img src="shilpi.jpg" class="swipe-img" alt="Shilpi">
+                        <div>
+                            <span class="swip-author">Shilpi Boylla</span>
+                            <span class="swip-role">Head of Design, Datatribe</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="swipe-card">
-                <p class="swipe-quote">Extremely focused, responsible, and always delivered on time. I wish her all the best.</p>
-                <div class="swipe-header">
-                    <img src="puneet.jpg" class="swipe-img" alt="Puneet">
-                    <div>
-                        <span class="swip-author">Puneet Kansal</span>
-                        <span class="swip-role">Founder, Rolls Mania</span>
+                <div class="swipe-card">
+                    <p class="swipe-quote">Extremely focused, responsible, and always delivered on time. I wish her all the best.</p>
+                    <div class="swipe-header">
+                        <img src="puneet.jpg" class="swipe-img" alt="Puneet">
+                        <div>
+                            <span class="swip-author">Puneet Kansal</span>
+                            <span class="swip-role">Founder, Rolls Mania</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <section id="contact" class="section" style="text-align:center; padding-bottom: 2rem;">
-        <h2 class="section-title" style="margin-bottom: 1rem;">Ready To Grow With Clarity?</h2>
-        <p style="color:#666; margin-bottom: 2rem;">Share a few details about your business and growth goals. We’ll review and recommend the right next step.</p>
-        
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only" style="width: auto; display: inline-block; padding: 1rem 2.5rem;">
-            Let’s Talk Growth
-        </a>
-    </section>
+        <section id="contact" class="section" style="text-align:center; padding-bottom: 2rem;">
+            <h2 class="section-title" style="margin-bottom: 1rem;">Ready To Grow With Clarity?</h2>
+            <p style="color:#666; margin-bottom: 2rem;">Share a few details about your business and growth goals. We’ll review and recommend the right next step.</p>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only" style="width: auto; display: inline-block; padding: 1rem 2.5rem;">
+                Let’s Talk Growth
+            </a>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-content">
             <div style="text-align: left; margin-bottom: 2rem;">
-                <img src="logo.png" alt="growthHQ" class="footer-logo">
+                <img src="logo.png" alt="growthHQ - B2C Growth Agency Logo" class="footer-logo">
                 <p class="footer-text">Growth partner for early-stage and scaling B2C brands.</p>
                 <p class="footer-subtext">Led by Snehitha Avirneni</p>
                 <a href="https://www.linkedin.com/in/snehithaavirneni/" target="_blank" class="footer-link-highlight">Connect on LinkedIn</a>
@@ -702,6 +729,35 @@
             Let’s Talk Growth
         </a>
     </div>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "growthHQ",
+      "image": "https://growthhq.in/logo.png",
+      "@id": "https://growthhq.in",
+      "url": "https://growthhq.in",
+      "telephone": "", 
+      "email": "snehitha@growthhq.in",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "addressCountry": "IN"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Snehitha Avirneni",
+        "sameAs": "https://www.linkedin.com/in/snehithaavirneni/"
+      },
+      "description": "Growth partner for early-stage and scaling B2C brands. Specializing in performance marketing, CRO, and retention.",
+      "sameAs": [
+        "https://www.linkedin.com/in/snehithaavirneni/"
+      ],
+      "priceRange": "$$"
+    }
+    </script>
 
     <script>
         const hamburger = document.querySelector(".hamburger");
