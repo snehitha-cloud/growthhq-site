@@ -48,18 +48,20 @@
             background: var(--dark);
             border-bottom: 1px solid rgba(255,255,255,0.05);
             z-index: 1000;
-            padding: 0.6rem 5%;
+            padding: 0.8rem 5%; /* Increased padding slightly */
             flex-shrink: 0; 
         }
         .nav-container {
-            max-width: 1200px;
+            /* INCREASED WIDTH as requested */
+            max-width: 1350px; 
             margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .nav-logo-link img { 
-            height: 40px;
+            /* INCREASED LOGO SIZE (Mobile Default) */
+            height: 45px; 
             width: auto; 
             display: block;
             object-fit: contain; 
@@ -76,7 +78,7 @@
         .nav-menu {
             position: fixed;
             left: -100%;
-            top: 65px;
+            top: 70px; /* Adjusted for slightly taller header */
             width: 100%;
             background-color: var(--dark);
             flex-direction: column;
@@ -115,9 +117,9 @@
         }
         
         .hero h1 { 
-            font-size: 2rem; /* Adjusted for mobile neatness */
+            font-size: 2rem; 
             font-weight: 800; 
-            margin: 0 auto 0; /* Removing bottom margin to control spacing via button margin */
+            margin: 0 auto 0; 
             max-width: 1200px; 
             line-height: 1.3;
             letter-spacing: -0.02em;
@@ -138,17 +140,16 @@
         }
         .btn-style:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
 
-        /* FIX: Hero Button Specifics (Size & Spacing Increased) */
+        /* FIX: Hero Button Specifics */
         .hero .btn-style {
             display: inline-block !important; 
             width: auto !important;           
             
-            /* INCREASED SIZE (+10%) */
             padding: 1.2rem 3rem; 
             font-size: 1.1rem;
             
-            /* INCREASED SPACING from headline */
-            margin-top: 2rem;
+            /* INCREASED SPACING (Mobile) */
+            margin-top: 2.5rem;
         }
 
         .pricing-card .btn-style {
@@ -163,11 +164,9 @@
 
         .microcopy { font-size: 0.85rem; color: #888; margin-top: 1rem; display: block; }
 
-        /* --- 4. TRUST SIGNALS (Pushed Down) --- */
+        /* --- 4. TRUST SIGNALS --- */
         .marquee-section {
-            /* INCREASED TOP PADDING to push down by ~3-5% */
             padding: 2.5rem 0 2rem;
-            
             background: var(--white);
             border-bottom: 1px solid #f0f0f0;
             overflow: hidden;
@@ -367,7 +366,8 @@
             .first-scroll-wrapper { min-height: 100vh; }
             
             .nav-header { padding: 0.8rem 5%; }
-            .nav-logo-link img { height: 48px; }
+            /* LOGO SIZE INCREASED (Desktop) */
+            .nav-logo-link img { height: 55px; }
 
             .nav-menu { 
                 position: static; 
@@ -399,11 +399,11 @@
             .hero { margin-bottom: 0; padding: 2rem 1.5rem; }
             .hero h1 { font-size: 4rem; margin-bottom: 0.5rem; max-width: 1200px; }
             
-            /* RESET Button styles for desktop */
+            /* HERO BUTTON SPACING (Doubled) */
             .hero .btn-style { 
-                padding: 1rem 3rem; 
-                margin-top: 1.5rem; 
-                font-size: 1rem;
+                padding: 1.2rem 3.5rem; /* Larger button */
+                margin-top: 4.5rem;     /* Doubled Spacing */
+                font-size: 1.1rem;
             }
             
             .marquee-section { padding: 2rem 0; }
@@ -460,7 +460,8 @@
             <h1>
                 Growth Partner for<br class="mobile-br">
                 Early-Stage and<br class="mobile-br">
-                <br class="desktop-br"> Scaling B2C Brands
+                <br class="desktop-br"> 
+                Scaling B2C Brands
             </h1>
             
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only">
@@ -611,7 +612,7 @@
                 <div class="founder-stats">
                     <span class="stat-pill">Managed ₹600 Cr+ Budgets</span>
                     <span class="stat-pill">3x ROAS</span>
-                    <span class="stat-pill">25% LTV Lift</span>
+                    <span class="stat-pill">25% LTV Improvement</span>
                     <span class="stat-pill">40% CAC Reduction</span>
                 </div>
                 <p>Every engagement is personally led by Snehitha. Execution is supported by a trusted network, but ownership always remains senior-led.</p>
@@ -661,7 +662,7 @@
 
     <section id="contact" class="section" style="text-align:center; padding-bottom: 2rem;">
         <h2 class="section-title" style="margin-bottom: 1rem;">Ready To Grow With Clarity?</h2>
-        <p style="color:#666; margin-bottom: 2rem;">Share a few details about your business and growth goals. We’ll review and recommend the right next step.</p>
+        <p style="color:#666; margin-bottom: 2rem;">Share a few details about your business and growth goals.<br>We’ll review and recommend the right next step.</p>
         
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only" style="width: auto; display: inline-block; padding: 1rem 2.5rem;">
             Let’s Talk Growth
