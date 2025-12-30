@@ -43,15 +43,26 @@
             overflow-x: hidden;
         }
 
-        /* --- 1. NAVIGATION (Sticky Fixed) --- */
+        /* --- 1. FIRST SCROLL LAYOUT --- */
+        .first-scroll-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh; 
+            height: 100dvh; 
+            width: 100%;
+            justify-content: space-between; 
+        }
+
+        /* --- 2. NAVIGATION (Sticky) --- */
         header.nav-header {
-            position: sticky; /* Keeps it stuck to top */
+            position: sticky;
             top: 0;
             background-color: var(--deep-navy);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             z-index: 9999;
             width: 100%;
             padding: 0.8rem 4%; 
+            flex-shrink: 0; 
         }
 
         .nav-container {
@@ -79,7 +90,7 @@
         .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-        /* NAV MENU */
+        /* MOBILE MENU */
         .nav-menu {
             position: fixed; left: -100%; top: 73px; width: 100%;
             background-color: var(--deep-navy); 
@@ -98,16 +109,20 @@
         .mobile-br { display: block; }
         .desktop-br { display: none; }
 
-        /* --- 2. HERO SECTION (Compact Mobile Layout) --- */
+        /* --- 3. HERO SECTION --- */
         .hero { 
             text-align: center; 
-            /* Reduced padding on mobile to pull content up */
-            padding: 2.5rem 1rem 1rem; 
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            padding: 0 1rem; 
         }
         
         .hero h1 { 
             font-family: 'Hero', 'Inter', sans-serif;
-            font-weight: 800;
+            font-weight: 700;
             font-size: 36px;       
             line-height: 1.15;     
             letter-spacing: -0.02em; 
@@ -130,11 +145,8 @@
             width: auto !important;           
             padding: 1.2rem 3rem; 
             font-size: 1.1rem;
-            /* FIXED GAP: 3rem is spacious but fits on screen */
-            margin-top: 3rem; 
+            margin-top: 3.5rem; 
         }
-
-        .pricing-card .btn-style { display: block; width: 100%; }
 
         .btn-green { background-color: var(--mint); color: white; box-shadow: 0 4px 15px rgba(24, 203, 150, 0.25); }
         .btn-deep-navy { background-color: var(--deep-navy); color: white; box-shadow: 0 4px 15px rgba(2, 30, 68, 0.2); }
@@ -142,16 +154,16 @@
 
         .microcopy { font-size: 0.85rem; color: #888; margin-top: 1rem; display: block; }
 
-        /* --- 3. TRUST SIGNALS (Compacted for First Fold) --- */
+        /* --- 4. TRUST SIGNALS --- */
         .marquee-section {
-            /* Tight top padding pulls it above the fold */
-            padding: 1.5rem 0 2rem; 
+            padding: 1rem 0 2rem; 
             background: var(--white);
             border-bottom: 1px solid #f0f0f0;
             overflow: hidden;
+            flex-shrink: 0; 
         }
         .marquee-title {
-            text-align: center; font-size: 0.75rem; text-transform: uppercase;
+            text-align: center; font-size: 0.7rem; text-transform: uppercase;
             letter-spacing: 1.5px; color: #aaa; margin-bottom: 1rem; font-weight: 700;
         }
         .marquee-track {
@@ -164,8 +176,13 @@
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- OTHER SECTIONS --- */
-        .section { padding: 3rem 1.5rem; max-width: 1100px; margin: auto; }
+        /* --- OTHER SECTIONS (Gaps Reduced by 50%) --- */
+        .section { 
+            /* Changed from 4rem to 2rem */
+            padding: 2rem 1.5rem; 
+            max-width: 1100px; 
+            margin: auto; 
+        }
         .section-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 2rem; text-align: center; color: var(--dark); }
         .brand-text { font-weight: 800; color: var(--dark); } .brand-hq { color: var(--mint); }
 
@@ -185,12 +202,21 @@
         .pricing-card.brand-green { border: 2px solid var(--mint); box-shadow: 0 10px 30px rgba(24, 203, 150, 0.15); position: relative; }
         .comp-card.bad { border-left: 4px solid #d1d5db; } .comp-card.good { border: 2px solid var(--mint); background: #fafffd; }
         
+        .pricing-card .btn-style { display: block; width: 100%; }
         .pop-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--mint); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
         .tier-header-green { color: var(--mint); font-weight: 800; font-size: 1.2rem; }
         .tier-header-navy { color: var(--deep-navy); font-weight: 800; font-size: 1.2rem; }
         .tier-price { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin: 0.5rem 0 1rem; }
-        
+        .tier-desc { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; font-style: italic; }
+        .tier-list { list-style: none; padding: 0; margin: 0 0 1.5rem 0; flex-grow: 1; }
+        .tier-list li { margin-bottom: 0.8rem; font-size: 0.95rem; padding-left: 25px; position: relative; color: var(--text-gray); }
+        .tier-list li::before { content: '✓'; color: var(--mint); position: absolute; left: 0; font-weight: bold; }
+
         .comp-title { font-weight: 700; font-size: 1.1rem; color: var(--dark); }
+        .comp-subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #888; font-weight: 600; margin-bottom: 1rem; display: block; }
+        .comp-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        .comp-list li { margin-bottom: 0.8rem; font-size: 0.95rem; position: relative; padding-left: 25px; line-height: 1.5; color: var(--text-gray); }
+        .comp-list li::before { content: '•'; position: absolute; left: 0; top: 0; font-size: 1.2rem; color: #ccc; }
         .result-good { background: var(--success-bg); color: var(--success-text); padding: 0.8rem; border-radius: 8px; font-weight: 600; margin-top: auto; }
         .result-bad { background: #f3f4f6; color: #4b5563; padding: 0.8rem; border-radius: 8px; font-weight: 600; margin-top: auto; }
 
@@ -203,8 +229,17 @@
         .swipe-card { min-width: 85vw; scroll-snap-align: center; background: var(--white); padding: 2rem; border-radius: 16px; border: 1px solid #eee; display: flex; flex-direction: column; justify-content: space-between; }
         .swipe-header { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid #f5f5f5; padding-top: 1rem; }
         .swipe-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--mint-light); }
+        .swipe-quote { font-size: 1.05rem; font-style: italic; color: var(--text-gray); line-height: 1.6; }
+        .swip-author { font-weight: 700; color: var(--dark); display: block; font-size: 0.95rem; }
+        .swip-role { font-size: 0.8rem; color: var(--mint-hover); }
 
-        footer { background-color: var(--dark); color: var(--white); padding: 4rem 1.5rem; text-align: center; }
+        footer { 
+            background-color: var(--dark); 
+            color: var(--white); 
+            /* Changed from 4rem to 2rem */
+            padding: 2rem 1.5rem; 
+            text-align: center; 
+        }
         .footer-logo { height: 48px; width: auto; margin-bottom: 1.5rem; object-fit: contain; }
         .footer-links a { color: var(--mint); text-decoration: none; display: block; margin: 0.5rem 0; }
         .footer-bottom { margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
@@ -236,24 +271,25 @@
             .desktop-only { display: inline-block; }
 
             /* Desktop Hero */
-            .hero { padding: 4rem 1.5rem 2rem; }
+            .hero { padding: 2rem 1.5rem; }
             .hero h1 { 
                 font-size: 4rem; margin-bottom: 0.5rem; max-width: 1200px; 
                 font-family: 'Inter', sans-serif; letter-spacing: -0.02em;
             }
             
-            /* Larger gap on Desktop */
             .hero .btn-style { 
                 padding: 1.2rem 3.5rem; 
-                margin-top: 5rem;     
+                margin-top: 4.5rem;     
                 font-size: 1.1rem;
             }
             
-            .marquee-section { padding: 3rem 0; } /* More padding on desktop */
+            .marquee-section { padding: 2rem 0; }
             .marquee-logo { height: 40px; margin: 0 2rem; }
             .logo-eternz { height: 32px; } .logo-byjus { height: 44px; } .logo-limetray { height: 48px; }
 
-            .section { padding: 4rem 1.5rem; } 
+            /* Desktop Section Padding Reduced by 50% (was 6rem) */
+            .section { padding: 3rem 1.5rem; } 
+            
             .comp-grid, .pricing-grid { grid-template-columns: repeat(3, 1fr); }
             .services-grid-box { grid-template-columns: repeat(4, 1fr); } 
             .founder-container { text-align: left; display: flex; align-items: flex-start; gap: 4rem; }
@@ -268,60 +304,63 @@
 </head>
 <body>
 
-    <header class="nav-header">
-        <div class="nav-container">
-            <a href="#" class="nav-logo-link">
-                <img src="logo.png" alt="growthHQ - B2C Growth Agency Logo">
-            </a>
-            
-            <div class="nav-menu">
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#pricing" class="nav-link">Engagement Models</a>
-                <a href="#reviews" class="nav-link">Reviews</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700;">
-                    Let’s Talk Growth
-                </a>
-            </div>
-
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </header>
-
-    <section class="hero">
-        <h1>
-            Growth Partner for<span class="mobile-br"></span>
-            Early-Stage <span class="desktop-br"></span>
-            and<span class="mobile-br"></span>
-            Scaling B2C Brands
-        </h1>
+    <div class="first-scroll-wrapper">
         
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only">
-            Let’s Talk Growth
-        </a>
-        <p class="microcopy">We’ll review your details and suggest the right engagement.</p>
-    </section>
+        <header class="nav-header">
+            <div class="nav-container">
+                <a href="#" class="nav-logo-link">
+                    <img src="logo.png" alt="growthHQ - B2C Growth Agency Logo">
+                </a>
+                
+                <div class="nav-menu">
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#pricing" class="nav-link">Engagement Models</a>
+                    <a href="#reviews" class="nav-link">Reviews</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700;">
+                        Let’s Talk Growth
+                    </a>
+                </div>
 
-    <section class="marquee-section">
-        <div class="marquee-title">Trusted By</div>
-        <div class="marquee-track">
-            <img src="rummycircle.png" class="marquee-logo">
-            <img src="byjus.png" class="marquee-logo logo-byjus">
-            <img src="stimuler.png" class="marquee-logo">
-            <img src="eternz.png" class="marquee-logo logo-eternz">
-            <img src="limetray.png" class="marquee-logo logo-limetray">
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <h1>
+                Growth Partner for<span class="mobile-br"></span>
+                Early-Stage <span class="desktop-br"></span>
+                and<span class="mobile-br"></span>
+                Scaling B2C Brands
+            </h1>
             
-            <img src="rummycircle.png" class="marquee-logo">
-            <img src="byjus.png" class="marquee-logo logo-byjus">
-            <img src="stimuler.png" class="marquee-logo">
-            <img src="eternz.png" class="marquee-logo logo-eternz">
-            <img src="limetray.png" class="marquee-logo logo-limetray">
-        </div>
-    </section>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only">
+                Let’s Talk Growth
+            </a>
+            <p class="microcopy">We’ll review your details and suggest the right engagement.</p>
+        </section>
+
+        <section class="marquee-section">
+            <div class="marquee-title">Trusted By</div>
+            <div class="marquee-track">
+                <img src="rummycircle.png" class="marquee-logo">
+                <img src="byjus.png" class="marquee-logo logo-byjus">
+                <img src="stimuler.png" class="marquee-logo">
+                <img src="eternz.png" class="marquee-logo logo-eternz">
+                <img src="limetray.png" class="marquee-logo logo-limetray">
+                
+                <img src="rummycircle.png" class="marquee-logo">
+                <img src="byjus.png" class="marquee-logo logo-byjus">
+                <img src="stimuler.png" class="marquee-logo">
+                <img src="eternz.png" class="marquee-logo logo-eternz">
+                <img src="limetray.png" class="marquee-logo logo-limetray">
+            </div>
+        </section>
+    </div> 
 
     <section class="section">
         <h2 class="section-title">Is <span class="brand-text">growth<span class="brand-hq">HQ</span></span> Right For You?</h2>
@@ -560,7 +599,7 @@
         const navMenu = document.querySelector(".nav-menu");
         const navLink = document.querySelectorAll(".nav-link");
         const stickyBar = document.querySelector('.mobile-sticky-bar');
-        const heroSection = document.querySelector('.hero');
+        const firstScroll = document.querySelector('.first-scroll-wrapper');
         const footerSection = document.querySelector('footer');
 
         hamburger.addEventListener("click", () => {
@@ -588,11 +627,11 @@
             });
         }, observerOptions);
 
-        observer.observe(heroSection);
+        observer.observe(firstScroll);
         observer.observe(footerSection);
 
         function checkVisibility() {
-            const heroRect = heroSection.getBoundingClientRect();
+            const heroRect = firstScroll.getBoundingClientRect();
             const footerRect = footerSection.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
