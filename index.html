@@ -38,7 +38,8 @@
         .first-scroll-wrapper {
             display: flex;
             flex-direction: column;
-            min-height: 100vh; 
+            /* Mobile adjustment: 90vh ensures content isn't hidden behind browser bars */
+            min-height: 90vh; 
         }
 
         /* --- 2. NAVIGATION --- */
@@ -48,7 +49,7 @@
             background: var(--dark);
             border-bottom: 1px solid rgba(255,255,255,0.05);
             z-index: 1000;
-            padding: 0.8rem 5%;
+            padding: 0.6rem 5%; /* Slightly tighter on mobile */
             flex-shrink: 0; 
         }
         .nav-container {
@@ -59,7 +60,7 @@
             align-items: center;
         }
         .nav-logo-link img { 
-            height: 48px;
+            height: 40px; /* Slightly smaller on mobile to save space */
             width: auto; 
             display: block;
             object-fit: contain; 
@@ -76,7 +77,7 @@
         .nav-menu {
             position: fixed;
             left: -100%;
-            top: 73px;
+            top: 65px;
             width: 100%;
             background-color: var(--dark);
             flex-direction: column;
@@ -99,30 +100,34 @@
         
         .desktop-only { display: none; }
 
-        /* --- 3. HERO SECTION (Layout Fixed) --- */
+        /* --- 3. HERO SECTION (Tighter for Mobile) --- */
         .hero { 
             text-align: center; 
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
             justify-content: center; 
-            /* KEY FIX: Center aligns items so they don't stretch */
             align-items: center; 
-            padding: 2rem 1.5rem;
+            /* Reduced padding on mobile to pull content up */
+            padding: 1rem 1rem;
         }
+        
+        /* HEADLINE FIX */
         .hero h1 { 
-            font-size: clamp(2rem, 5vw, 3.5rem); 
+            /* Adjusted font size for mobile neatness */
+            font-size: 1.8rem; 
             font-weight: 800; 
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1rem;
             max-width: 1200px; 
-            line-height: 1.15;
+            line-height: 1.2;
             letter-spacing: -0.02em;
             color: var(--dark);
+            
+            /* THIS IS THE KEY FIX FOR BALANCED LINES */
+            text-wrap: balance; 
         }
         
         /* --- BUTTON STYLES --- */
-        
-        /* Base Button Style */
         .btn-style {
             text-align: center; 
             padding: 1rem;
@@ -136,15 +141,13 @@
         }
         .btn-style:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
 
-        /* FIX: Hero Button Specific (Force Auto Width) */
         .hero .btn-style {
-            display: inline-block !important; /* Force inline behavior */
-            width: auto !important;           /* Force fit to content */
-            padding: 1rem 3rem;               /* Wider padding for pill look */
-            margin-top: 1rem;
+            display: inline-block !important; 
+            width: auto !important;           
+            padding: 1rem 2.5rem;               
+            margin-top: 0.5rem;
         }
 
-        /* FIX: Pricing Card Buttons (Force Full Width) */
         .pricing-card .btn-style {
             display: block;
             width: 100%;
@@ -157,9 +160,10 @@
 
         .microcopy { font-size: 0.85rem; color: #888; margin-top: 1rem; display: block; }
 
-        /* --- 4. TRUST SIGNALS --- */
+        /* --- 4. TRUST SIGNALS (Pulled Up) --- */
         .marquee-section {
-            padding: 2rem 0;
+            /* Reduced padding to push it up by ~15% */
+            padding: 0.5rem 0 2rem;
             background: var(--white);
             border-bottom: 1px solid #f0f0f0;
             overflow: hidden;
@@ -167,11 +171,11 @@
         }
         .marquee-title {
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #aaa;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-weight: 700;
         }
         .marquee-track {
@@ -183,16 +187,16 @@
         .marquee-track:hover { animation-play-state: paused; }
         
         .marquee-logo {
-            height: 40px; 
+            height: 35px; /* Slightly smaller on mobile */
             width: auto;
-            margin: 0 2rem;
+            margin: 0 1.5rem;
             filter: grayscale(100%);
             opacity: 0.6;
             object-fit: contain;
         }
-        .logo-eternz { height: 29px; }   
-        .logo-byjus { height: 44px; }    
-        .logo-limetray { height: 48px; }
+        .logo-eternz { height: 26px; }   
+        .logo-byjus { height: 39px; }    
+        .logo-limetray { height: 42px; }
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
@@ -346,11 +350,17 @@
             text-decoration: none; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(24, 203, 150, 0.3);
         }
 
-        /* --- DESKTOP ENHANCEMENTS --- */
+        /* --- DESKTOP ENHANCEMENTS (Restores Desktop Layouts) --- */
         @media (min-width: 900px) {
             .mobile-sticky-bar { display: none !important; } 
             body { padding-bottom: 0; }
             
+            /* Restore 100vh for desktop too */
+            .first-scroll-wrapper { min-height: 100vh; }
+            
+            .nav-header { padding: 0.8rem 5%; }
+            .nav-logo-link img { height: 48px; }
+
             .nav-menu { 
                 position: static; 
                 flex-direction: row; 
@@ -378,9 +388,16 @@
             .hamburger { display: none; }
             .desktop-only { display: inline-block; } 
             
-            .hero { margin-bottom: 0; }
-            .hero h1 { font-size: 4rem; margin-bottom: 2rem; }
+            .hero { margin-bottom: 0; padding: 2rem 1.5rem; }
+            .hero h1 { font-size: 4rem; margin-bottom: 2rem; max-width: 1200px; }
+            .hero .btn-style { padding: 1rem 3rem; margin-top: 1rem; }
             
+            .marquee-section { padding: 2rem 0; }
+            .marquee-logo { height: 40px; margin: 0 2rem; }
+            .logo-eternz { height: 32px; }
+            .logo-byjus { height: 44px; }
+            .logo-limetray { height: 48px; }
+
             .section { padding: 4rem 1.5rem; } 
             
             .comp-grid, .pricing-grid, .services-grid-box { grid-template-columns: repeat(3, 1fr); }
