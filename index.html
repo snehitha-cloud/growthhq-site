@@ -6,23 +6,13 @@
     
     <title>growthHQ | Growth Partner for Early-Stage & Scaling B2C Brands</title>
     <meta name="description" content="growthHQ helps consumer brands fix growth fundamentals, scale Meta & Google ads profitably, and solve challenges across the funnel. Founder-led growth by Snehitha Avirneni.">
-    <meta name="keywords" content="B2C Growth Consultant, Performance Marketing Agency, Fractional CMO India, Growth Hacking, Meta Ads Expert, Google Ads Strategy, D2C Growth Partner">
-    <meta name="author" content="Snehitha Avirneni">
     <meta name="robots" content="index, follow">
     
     <link rel="canonical" href="https://growthhq.in/">
-
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://growthhq.in/">
     <meta property="og:title" content="growthHQ | Growth Partner for Early-Stage & Scaling B2C Brands">
-    <meta property="og:description" content="We help consumer brands fix growth fundamentals and scale profitably. Founder-led execution by Snehitha Avirneni.">
+    <meta property="og:description" content="Founder-led growth partner for scaling B2C brands.">
     <meta property="og:image" content="https://growthhq.in/og-image.jpg">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="growthHQ | B2C Growth Partner">
-    <meta property="twitter:description" content="We help consumer brands fix growth fundamentals and scale profitably.">
-    <meta property="twitter:image" content="https://growthhq.in/og-image.jpg">
-
     <link rel="icon" type="image/png" href="favicon.png"> 
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,17 +20,13 @@
     <style>
         :root {
             --mint: #18cb96;
-            --mint-hover: #14b082;
-            --mint-light: #e0fbf2;
             --dark: #2e2e3a;
-            --deep-navy: #021e44; 
+            --deep-navy: #021e44; /* Requested Menu Color */
             --text-gray: #555560;
             --white: #ffffff;
             --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f9fbfb 100%);
-            --danger-text: #c53030;
             --success-bg: #f0fdf9;
             --success-text: #0d8a6a;
-            --tier-2: #2d9cdb;
         }
         
         * { box-sizing: border-box; scroll-behavior: smooth; }
@@ -53,21 +39,30 @@
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            padding-bottom: 80px; 
         }
 
-        /* --- 1. NAVIGATION (Sticky) --- */
+        /* --- 1. FIRST FOLD CONTAINER --- */
+        .first-scroll-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            height: 100vh; 
+            height: 100dvh; 
+            min-height: 600px; 
+        }
+
+        /* --- 2. NAVIGATION (Deep Navy #021e44) --- */
         header.nav-header {
+            width: 100%;
+            padding: 0.8rem 4%; 
+            z-index: 9999;
             position: sticky;
             top: 0;
-            background: var(--dark);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            z-index: 2000; /* High Z-Index to stay on top */
-            
-            /* MOBILE: Wider appearance */
-            padding: 0.8rem 4%; 
-            flex-shrink: 0; 
+            /* FIXED: Applied requested color */
+            background-color: var(--deep-navy); 
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
+
         .nav-container {
             max-width: 1350px; 
             margin: auto;
@@ -77,21 +72,18 @@
         }
         
         .nav-logo-link img { 
-            /* MOBILE: Logo Size */
-            height: 52px; 
+            height: 48px; 
             width: auto; 
             display: block;
             object-fit: contain; 
         }
         
-        /* Mobile Hamburger */
-        .hamburger { display: block; cursor: pointer; }
+        /* HAMBURGER */
+        .hamburger { display: block; cursor: pointer; z-index: 10001; }
         .bar { 
-            display: block; 
-            width: 30px; 
-            height: 3px; 
-            margin: 6px auto; 
+            display: block; width: 30px; height: 3px; margin: 6px auto; 
             transition: 0.3s; 
+            /* FIXED: White bars to contrast with Navy header */
             background-color: white; 
             border-radius: 2px; 
         }
@@ -99,41 +91,27 @@
         .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
         .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-        /* Mobile Menu */
+        /* MOBILE MENU (Deep Navy) */
         .nav-menu {
-            position: fixed;
-            left: -100%;
-            top: 75px; 
-            width: 100%;
-            background-color: var(--dark);
+            position: fixed; left: -100%; top: 73px; width: 100%;
+            /* FIXED: Matches Header Color */
+            background-color: var(--deep-navy); 
             flex-direction: column;
-            text-align: center;
-            transition: 0.3s;
-            padding: 2rem 0;
-            box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-            display: flex;
-            gap: 0;
+            text-align: center; transition: 0.3s; padding: 2rem 0;
+            box-shadow: 0 10px 10px rgba(0,0,0,0.2); display: flex; gap: 0; z-index: 10000;
         }
-        .nav-menu.active { left: 0; }
+        .nav-menu.active { left: 0; } 
+        
         .nav-menu a.nav-link {
-            display: block;
-            padding: 1rem 0;
-            color: rgba(255,255,255,0.9);
-            font-weight: 500;
-            text-decoration: none;
-            font-size: 1.1rem;
+            display: block; padding: 1rem 0; color: rgba(255,255,255,0.9);
+            font-weight: 500; text-decoration: none; font-size: 1.1rem;
         }
         
         .desktop-only { display: none; }
-        
-        /* --- 2. FIRST SCROLL WRAPPER --- */
-        .first-scroll-wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 90vh; 
-        }
+        .mobile-br { display: block; }
+        .desktop-br { display: none; }
 
-        /* --- 3. HERO SECTION & HEADLINE BREAKS --- */
+        /* --- 3. HERO SECTION --- */
         .hero { 
             text-align: center; 
             flex-grow: 1; 
@@ -141,328 +119,147 @@
             flex-direction: column;
             justify-content: center; 
             align-items: center; 
-            padding: 1rem 1rem;
+            padding: 0 1rem; 
         }
         
         .hero h1 { 
             font-family: 'Hero', 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 36px;       
+            font-weight: 800;
+            font-size: 32px; 
             line-height: 1.15;     
             letter-spacing: -0.02em; 
-            
-            margin: 0 auto 0; 
+            margin: 0 auto; 
             max-width: 1200px; 
             color: var(--dark);
-            /* Removed 'text-wrap: balance' to enforce strict manual breaks */
+            text-wrap: balance;
         }
         
-        /* Line Break Logic */
-        .mobile-br { display: block; }
-        .desktop-br { display: none; }
-        
-        /* --- BUTTON STYLES --- */
         .btn-style {
-            text-align: center; 
-            padding: 1rem;
-            border-radius: 50px; 
-            font-weight: 700; 
-            text-decoration: none;
-            font-size: 1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
+            text-align: center; padding: 1rem; border-radius: 50px; 
+            font-weight: 700; text-decoration: none; font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .btn-style:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
 
-        /* FIX: Hero Button Specifics (Mobile) */
         .hero .btn-style {
             display: inline-block !important; 
             width: auto !important;           
-            padding: 1.2rem 3rem; 
-            font-size: 1.1rem;
-            margin-top: 3.5rem; 
+            padding: 1rem 2.5rem; 
+            font-size: 1rem;
+            margin-top: 5vh; 
         }
 
-        .pricing-card .btn-style {
-            display: block;
-            width: 100%;
-        }
-
-        /* Button Colors */
         .btn-green { background-color: var(--mint); color: white; box-shadow: 0 4px 15px rgba(24, 203, 150, 0.25); }
         .btn-deep-navy { background-color: var(--deep-navy); color: white; box-shadow: 0 4px 15px rgba(2, 30, 68, 0.2); }
-        .btn-linkedin { background-color: var(--deep-navy); color: white; width: auto; display: inline-block; padding: 0.8rem 2rem; font-size: 0.95rem; }
+        
+        .microcopy { font-size: 0.8rem; color: #888; margin-top: 0.8rem; display: block; }
 
-        .microcopy { font-size: 0.85rem; color: #888; margin-top: 1rem; display: block; }
-
-        /* --- 4. TRUST SIGNALS (Mobile) --- */
+        /* --- 4. TRUST SIGNALS --- */
         .marquee-section {
-            padding: 3.5rem 0 2rem;
+            padding: 1.5rem 0 2rem; 
             background: var(--white);
             border-bottom: 1px solid #f0f0f0;
             overflow: hidden;
             flex-shrink: 0; 
         }
         .marquee-title {
-            text-align: center;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #aaa;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            text-align: center; font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 1.5px; color: #aaa; margin-bottom: 0.8rem; font-weight: 700;
         }
         .marquee-track {
-            display: flex;
-            width: max-content;
-            animation: scroll 30s linear infinite;
-            align-items: center;
+            display: flex; width: max-content; animation: scroll 30s linear infinite; align-items: center;
         }
-        .marquee-track:hover { animation-play-state: paused; }
-        
         .marquee-logo {
-            height: 35px; 
-            width: auto;
-            margin: 0 1.5rem;
-            filter: grayscale(100%);
-            opacity: 0.6;
-            object-fit: contain;
+            height: 30px; 
+            width: auto; margin: 0 1rem; filter: grayscale(100%); opacity: 0.6; object-fit: contain;
         }
-        .logo-eternz { height: 26px; }   
-        .logo-byjus { height: 39px; }    
-        .logo-limetray { height: 42px; }
+        .logo-eternz { height: 24px; } .logo-byjus { height: 34px; } .logo-limetray { height: 36px; }
 
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* --- 5. GENERAL SECTION STYLES --- */
+        /* --- OTHER SECTIONS --- */
         .section { padding: 3rem 1.5rem; max-width: 1100px; margin: auto; }
-        .section-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 2rem; text-align: center; color: var(--dark); line-height: 1.2; text-transform: none; }
-        .brand-text { font-weight: 800; color: var(--dark); }
-        .brand-hq { color: var(--mint); }
+        .section-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 2rem; text-align: center; color: var(--dark); }
+        .brand-text { font-weight: 800; color: var(--dark); } .brand-hq { color: var(--mint); }
 
-        /* --- 6. SELF QUALIFICATION --- */
-        .qual-box {
-            background: var(--white);
-            border: 2px solid var(--mint-light);
-            border-radius: 16px;
-            padding: 2rem 1.5rem;
-        }
+        .qual-box { background: var(--white); border: 2px solid var(--mint-light); border-radius: 16px; padding: 2rem 1.5rem; }
         .check-list { list-style: none; padding: 0; margin: 0; }
-        .check-list li {
-            margin-bottom: 1rem;
-            padding-left: 30px;
-            position: relative;
-            font-size: 1rem;
-            color: var(--dark);
-        }
-        .check-list li::before {
-            content: '✓'; color: var(--mint); font-weight: 900; position: absolute; left: 0;
-        }
+        .check-list li { margin-bottom: 1rem; padding-left: 30px; position: relative; font-size: 1rem; color: var(--dark); }
+        .check-list li::before { content: '✓'; color: var(--mint); font-weight: 900; position: absolute; left: 0; }
         .qual-footer { margin-top: 1.5rem; font-weight: 700; color: var(--mint); text-align: center; }
 
-        /* --- 7. SERVICES --- */
         .services-wrapper { max-width: 1150px; margin: auto; }
         .services-intro { text-align: center; margin-bottom: 2rem; font-size: 1.05rem; }
-        .services-grid-box {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-        .service-pill {
-            background: var(--white);
-            border: 1px solid #eee;
-            padding: 1rem;
-            border-radius: 12px;
-            font-weight: 600;
-            color: var(--dark);
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            display: flex; align-items: center; justify-content: center;
-        }
+        .services-grid-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem; }
+        .service-pill { background: var(--white); border: 1px solid #eee; padding: 0.8rem; border-radius: 12px; font-weight: 600; color: var(--dark); text-align: center; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
 
-        /* --- 8. PRICING CARDS --- */
-        .pricing-grid { display: grid; gap: 2rem; margin-top: 2rem; }
-        .pricing-card {
-            background: var(--white);
-            padding: 2rem 1.5rem;
-            border-radius: 20px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #eee;
-        }
-        .pricing-card.brand-green { border: 2px solid var(--mint); box-shadow: 0 10px 30px rgba(24, 203, 150, 0.15); }
-        .pop-badge {
-            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-            background: var(--mint); color: white; padding: 4px 12px;
-            border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-        }
+        .pricing-grid, .comp-grid { display: grid; gap: 2rem; margin-top: 2rem; }
+        .pricing-card, .comp-card { background: var(--white); padding: 2rem 1.5rem; border-radius: 20px; border: 1px solid #eee; display: flex; flex-direction: column; }
+        .pricing-card.brand-green { border: 2px solid var(--mint); box-shadow: 0 10px 30px rgba(24, 203, 150, 0.15); position: relative; }
+        .comp-card.bad { border-left: 4px solid #d1d5db; } .comp-card.good { border: 2px solid var(--mint); background: #fafffd; }
+        
+        .pop-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--mint); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
         .tier-header-green { color: var(--mint); font-weight: 800; font-size: 1.2rem; }
         .tier-header-navy { color: var(--deep-navy); font-weight: 800; font-size: 1.2rem; }
         .tier-price { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin: 0.5rem 0 1rem; }
-        .tier-desc { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; font-style: italic; }
-        .tier-list { list-style: none; padding: 0; margin: 0 0 1.5rem 0; flex-grow: 1; }
-        .tier-list li { margin-bottom: 0.8rem; font-size: 0.95rem; padding-left: 25px; position: relative; color: var(--text-gray); }
-        .tier-list li::before { content: '✓'; color: var(--mint); position: absolute; left: 0; font-weight: bold; }
-
-        /* --- 9. COMPARISON CARDS --- */
-        .comp-grid { display: grid; gap: 1.5rem; }
-        .comp-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 16px;
-            border: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        .comp-card.bad { border-left: 4px solid #d1d5db; }
-        .comp-card.good { border: 2px solid var(--mint); background: #fafffd; }
+        
         .comp-title { font-weight: 700; font-size: 1.1rem; color: var(--dark); }
-        .comp-subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #888; font-weight: 600; margin-bottom: 1rem; display: block; }
-        .comp-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
-        .comp-list li { margin-bottom: 0.8rem; font-size: 0.95rem; position: relative; padding-left: 25px; line-height: 1.5; color: var(--text-gray); }
-        .comp-list li::before { content: '•'; position: absolute; left: 0; top: 0; font-size: 1.2rem; color: #ccc; }
-        .result-box { margin-top: auto; padding: 0.8rem; border-radius: 8px; font-size: 0.9rem; font-weight: 600; }
-        .result-bad { background: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; } 
-        .result-good { background: var(--success-bg); color: var(--success-text); }
+        .result-good { background: var(--success-bg); color: var(--success-text); padding: 0.8rem; border-radius: 8px; font-weight: 600; margin-top: auto; }
+        .result-bad { background: #f3f4f6; color: #4b5563; padding: 0.8rem; border-radius: 8px; font-weight: 600; margin-top: auto; }
 
-        /* --- 10. FOUNDER --- */
         .founder-container { text-align: center; }
-        .founder-img {
-            width: 200px; height: 200px; border-radius: 20px; 
-            object-fit: cover; margin: 0 auto 1.5rem;
-            border: 1px solid #eee; box-shadow: 10px 10px 0 var(--mint-light);
-        }
-        .founder-stats {
-            display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin: 1.5rem 0;
-        }
+        .founder-img { width: 200px; height: 200px; border-radius: 20px; object-fit: cover; margin: 0 auto 1.5rem; border: 1px solid #eee; box-shadow: 10px 10px 0 var(--mint-light); }
+        .founder-stats { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin: 1.5rem 0; }
         .stat-pill { background: #f4f4f5; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; color: var(--dark); }
 
-        /* --- 11. TESTIMONIALS --- */
-        .swipe-container {
-            display: flex; overflow-x: auto; gap: 1.5rem; padding-bottom: 1.5rem;
-            scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; 
-        }
-        .swipe-card {
-            min-width: 85vw; scroll-snap-align: center;
-            background: var(--white); padding: 2rem; border-radius: 16px; border: 1px solid #eee;
-            display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .swipe-header {
-            display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid #f5f5f5; padding-top: 1rem;
-        }
-        .swipe-img {
-            width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--mint-light);
-        }
-        .swipe-quote { font-size: 1.05rem; font-style: italic; color: var(--text-gray); line-height: 1.6; }
-        .swip-author { font-weight: 700; color: var(--dark); display: block; font-size: 0.95rem; }
-        .swip-role { font-size: 0.8rem; color: var(--mint-hover); }
+        .swipe-container { display: flex; overflow-x: auto; gap: 1.5rem; padding-bottom: 1.5rem; scroll-snap-type: x mandatory; }
+        .swipe-card { min-width: 85vw; scroll-snap-align: center; background: var(--white); padding: 2rem; border-radius: 16px; border: 1px solid #eee; display: flex; flex-direction: column; justify-content: space-between; }
+        .swipe-header { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid #f5f5f5; padding-top: 1rem; }
+        .swipe-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--mint-light); }
 
-        /* --- 12. FOOTER --- */
-        footer { background-color: var(--dark); color: var(--white); padding: 4rem 1.5rem 4rem; text-align: center; }
+        footer { background-color: var(--dark); color: var(--white); padding: 4rem 1.5rem; text-align: center; }
         .footer-logo { height: 48px; width: auto; margin-bottom: 1.5rem; object-fit: contain; }
-        .footer-text { margin-bottom: 0.5rem; color: rgba(255,255,255,0.9); font-size: 1rem; }
-        .footer-subtext { margin-bottom: 1.5rem; color: rgba(255,255,255,0.7); font-size: 0.95rem; }
-        .footer-link-highlight { color: var(--mint); text-decoration: none; font-weight: 600; }
-        .footer-email { margin-top: 0.5rem; display: block; color: rgba(255,255,255,0.7); text-decoration: none; }
-        .footer-bottom { margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.3); text-align: right; }
+        .footer-links a { color: var(--mint); text-decoration: none; display: block; margin: 0.5rem 0; }
+        .footer-bottom { margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
 
-        /* Sticky Button */
-        .mobile-sticky-bar {
-            position: fixed; bottom: 0; left: 0; width: 100%;
-            background: var(--white); padding: 1rem;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-            z-index: 2000;
-            display: flex; justify-content: center;
-            transition: transform 0.3s ease-in-out;
-        }
+        .mobile-sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); padding: 1rem; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); z-index: 2000; display: flex; justify-content: center; transition: transform 0.3s; }
         .mobile-sticky-bar.hidden { transform: translateY(100%); }
-        .mobile-btn {
-            background-color: var(--mint); color: var(--white); width: 100%; max-width: 400px;
-            padding: 1rem; text-align: center; border-radius: 50px; font-weight: 700;
-            text-decoration: none; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(24, 203, 150, 0.3);
-        }
+        .mobile-btn { background-color: var(--mint); color: var(--white); width: 100%; max-width: 400px; padding: 1rem; text-align: center; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(24, 203, 150, 0.3); }
 
         /* --- DESKTOP ENHANCEMENTS --- */
         @media (min-width: 900px) {
             .mobile-sticky-bar { display: none !important; } 
-            body { padding-bottom: 0; }
             
-            /* RESET Mobile breaks */
-            .mobile-br { display: none; }
-            .desktop-br { display: block; }
-            
-            /* Restore 100vh for desktop */
-            .first-scroll-wrapper { min-height: 100vh; }
-            
-            .nav-header { padding: 0.8rem 4%; } 
-            .nav-logo-link img { height: 55px; } /* Desktop Logo Size */
+            .nav-header { padding: 0.8rem 4%; }
+            .nav-logo-link img { height: 55px; } 
+            .hamburger { display: none; }
 
             .nav-menu { 
-                position: static; 
-                flex-direction: row; 
-                background: none; 
-                width: auto; 
-                padding: 0; 
-                box-shadow: none; 
-                left: 0; 
-                align-items: center; 
-                gap: 2rem; 
+                position: static; flex-direction: row; background: none; width: auto; 
+                padding: 0; box-shadow: none; left: 0; top: auto; align-items: center; 
+                gap: 2rem; display: flex !important; 
             }
-            .nav-menu a.nav-link { 
-                display: inline-block; 
-                padding: 0; 
-                color: rgba(255,255,255,0.8);
-                white-space: nowrap; 
-            }
-            .nav-cta.desktop-only {
-                display: inline-flex; 
-                align-items: center;
-                justify-content: center;
-                white-space: nowrap;
-            }
+            .nav-menu a.nav-link { display: inline-block; padding: 0; color: rgba(255,255,255,0.8); }
+            .desktop-only { display: inline-block; }
+            .mobile-br { display: none; }
+            .desktop-br { display: block; }
 
-            .hamburger { display: none; }
-            .desktop-only { display: inline-block; } 
-            
-            .hero { margin-bottom: 0; padding: 2rem 1.5rem; }
-            
-            /* DESKTOP HEADLINE RESTORE */
-            .hero h1 { 
-                font-size: 4rem; 
-                margin-bottom: 0.5rem; 
-                max-width: 1200px; 
-                font-family: 'Inter', sans-serif;
-                letter-spacing: -0.02em;
-            }
-            
-            /* HERO BUTTON SPACING */
-            .hero .btn-style { 
-                padding: 1.2rem 3.5rem; 
-                margin-top: 4.5rem;     
-                font-size: 1.1rem;
-            }
+            .hero h1 { font-size: 4rem; max-width: 1200px; }
+            .hero .btn-style { padding: 1.2rem 3.5rem; margin-top: 4.5rem; font-size: 1.1rem; }
             
             .marquee-section { padding: 2rem 0; }
             .marquee-logo { height: 40px; margin: 0 2rem; }
-            .logo-eternz { height: 32px; }
-            .logo-byjus { height: 44px; }
-            .logo-limetray { height: 48px; }
+            .logo-eternz { height: 32px; } .logo-byjus { height: 44px; } .logo-limetray { height: 48px; }
 
             .section { padding: 4rem 1.5rem; } 
-            
             .comp-grid, .pricing-grid { grid-template-columns: repeat(3, 1fr); }
             .services-grid-box { grid-template-columns: repeat(4, 1fr); } 
-            
             .founder-container { text-align: left; display: flex; align-items: flex-start; gap: 4rem; }
             .founder-img { margin: 0; width: 300px; height: 300px; }
             .founder-stats { justify-content: flex-start; }
-            
             .swipe-container { display: grid; grid-template-columns: repeat(3, 1fr); overflow: visible; padding-bottom: 0; }
             .swipe-card { min-width: auto; }
-            
             .footer-content { display: flex; justify-content: space-between; align-items: flex-start; max-width: 1200px; margin: auto; text-align: left; }
             .footer-bottom { display: flex; justify-content: flex-end; max-width: 1200px; margin: 3rem auto 0; }
         }
@@ -470,243 +267,243 @@
 </head>
 <body>
 
-    <header class="nav-header">
-        <div class="nav-container">
-            <a href="#" class="nav-logo-link">
-                <img src="logo.png" alt="growthHQ - B2C Growth Agency Logo">
-            </a>
-            
-            <div class="nav-menu">
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#pricing" class="nav-link">Engagement Models</a>
-                <a href="#reviews" class="nav-link">Reviews</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700;">
-                    Let’s Talk Growth
+    <div class="first-scroll-wrapper">
+        
+        <header class="nav-header">
+            <div class="nav-container">
+                <a href="#" class="nav-logo-link">
+                    <img src="logo.png" alt="growthHQ">
                 </a>
-            </div>
-
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <div class="first-scroll-wrapper">
-            
-            <header class="hero">
-                <h1>
-                    Growth Partner for<span class="mobile-br"></span> Early-Stage <span class="desktop-br"></span> and<span class="mobile-br"></span> Scaling B2C Brands
-                </h1>
                 
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only">
-                    Let’s Talk Growth
-                </a>
-                <p class="microcopy">We’ll review your details and suggest the right engagement.</p>
-            </header>
-
-            <section class="marquee-section">
-                <div class="marquee-title">Trusted By</div>
-                <div class="marquee-track">
-                    <img src="rummycircle.png" class="marquee-logo">
-                    <img src="byjus.png" class="marquee-logo logo-byjus">
-                    <img src="stimuler.png" class="marquee-logo">
-                    <img src="eternz.png" class="marquee-logo logo-eternz">
-                    <img src="limetray.png" class="marquee-logo logo-limetray">
-                    
-                    <img src="rummycircle.png" class="marquee-logo">
-                    <img src="byjus.png" class="marquee-logo logo-byjus">
-                    <img src="stimuler.png" class="marquee-logo">
-                    <img src="eternz.png" class="marquee-logo logo-eternz">
-                    <img src="limetray.png" class="marquee-logo logo-limetray">
-                </div>
-            </section>
-        </div> 
-
-        <section class="section">
-            <h2 class="section-title">Is <span class="brand-text">growth<span class="brand-hq">HQ</span></span> Right For You?</h2>
-            <div class="qual-box">
-                <ul class="check-list">
-                    <li>You’re spending or planning to spend on Meta & Google</li>
-                    <li>You want better ROAS, not just higher spends</li>
-                    <li>You don’t want to hire too early or work with a generic agency</li>
-                    <li>You want senior ownership, not trial-and-error execution</li>
-                </ul>
-                <div class="qual-footer">If this sounds like you, keep going. ↓</div>
-            </div>
-        </section>
-
-        <section class="section" id="services">
-            <h2 class="section-title">How We Help Brands Grow?</h2>
-            <div class="services-wrapper">
-                <p class="services-intro">growthHQ works with B2C brands to solve growth problems at different stages — from fixing fundamentals to scaling performance and managing complexity.</p>
-                
-                <div class="services-grid-box">
-                    <div class="service-pill">Meta & Google Ads</div>
-                    <div class="service-pill">Conversion Rate Optimisation</div>
-                    <div class="service-pill">Attribution & Tracking</div>
-                    <div class="service-pill">Marketplace Management</div>
-                    <div class="service-pill">Creative Strategy</div>
-                    <div class="service-pill">Retention & CRM</div>
-                    <div class="service-pill">Funnel Analysis</div>
-                    <div class="service-pill">Growth Experimentation</div>
-                    <div class="service-pill">Influencer Marketing</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="pricing">
-            <h2 class="section-title">Engagement Models</h2>
-            <p style="text-align: center; color: #666;">Transparent pricing to help you assess fit upfront.</p>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="tier-header-navy">Growth Foundation</div>
-                    <div class="tier-price">₹50k – ₹75k / mo</div>
-                    <p class="tier-desc">Best for: Early brands or broken setups</p>
-                    <ul class="tier-list">
-                        <li>Tracking, attribution & pixel setup</li>
-                        <li>Audit of campaigns & structure</li>
-                        <li>Limited campaigns + monitoring</li>
-                        <li>Up to 20 hours/month</li>
-                    </ul>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-deep-navy">Let’s Talk Growth</a>
-                </div>
-
-                <div class="pricing-card brand-green popular">
-                    <div class="pop-badge">Most Popular</div>
-                    <div class="tier-header-green">Growth Scale Partner</div>
-                    <div class="tier-price">₹1L – ₹1.5L / mo</div>
-                    <p class="tier-desc">Best for: Scaling Meta & Google</p>
-                    <ul class="tier-list">
-                        <li>Hands-on execution (Meta + Google)</li>
-                        <li>Creative & audience A/B testing</li>
-                        <li>Continuous optimisation & scaling</li>
-                        <li>Weekly performance reviews</li>
-                    </ul>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green">Let’s Talk Growth</a>
-                </div>
-
-                <div class="pricing-card">
-                    <div class="tier-header-navy">Growth Ownership</div>
-                    <div class="tier-price">₹2L – ₹2.5L / mo</div>
-                    <p class="tier-desc">Best for: Complex growth decisions</p>
-                    <ul class="tier-list">
-                        <li>Strategy + execution across levers</li>
-                        <li>CRO, retention, CRM & attribution</li>
-                        <li>Weekly founder working sessions</li>
-                        <li>Holistic growth ownership</li>
-                    </ul>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-deep-navy">Let’s Talk Growth</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Why Founders Choose <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
-            <div class="comp-grid">
-                <div class="comp-card bad">
-                    <div class="comp-title">Typical Agency</div>
-                    <div class="comp-subtitle">Works on ad spend commission</div>
-                    <ul class="comp-list">
-                        <li>Incentivised to push spend, not efficiency</li>
-                        <li>Early accounts often under-serviced</li>
-                    </ul>
-                    <div class="result-box result-bad">Result: Expensive mistakes & misalignment.</div>
-                </div>
-
-                <div class="comp-card bad">
-                    <div class="comp-title">Hiring In-House</div>
-                    <div class="comp-subtitle">Too Early</div>
-                    <ul class="comp-list">
-                        <li>Long ramp-up time</li>
-                        <li>Needs constant guidance</li>
-                    </ul>
-                    <div class="result-box result-bad">Result: Learning slows down, CAC spikes.</div>
-                </div>
-
-                <div class="comp-card good">
-                    <div class="comp-title">growthHQ</div>
-                    <div class="comp-subtitle" style="color: var(--mint);">Fixed monthly retainer</div>
-                    <ul class="comp-list">
-                        <li>Senior-led strategy + execution</li>
-                        <li>Strong foundations before scaling</li>
-                    </ul>
-                    <div class="result-box result-good">Result: Faster clarity & sustainable growth.</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">Who’s behind <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
-            <div class="founder-container">
-                <img src="Snehitha.jpg" alt="Snehitha Avirneni - Growth Consultant and Founder of growthHQ" class="founder-img">
-                <div style="flex:1;">
-                    <p><strong>growthHQ is led by Snehitha Avirneni</strong>, a growth leader with 11+ years of experience scaling consumer internet and D2C businesses.</p>
-                    <div class="founder-stats">
-                        <span class="stat-pill">Managed ₹600 Cr+ Budgets</span>
-                        <span class="stat-pill">3x ROAS</span>
-                        <span class="stat-pill">25% LTV Lift</span>
-                        <span class="stat-pill">40% CAC Reduction</span>
-                    </div>
-                    <p>Every engagement is personally led by Snehitha. Execution is supported by a trusted network, but ownership always remains senior-led.</p>
-                    <br>
-                    <a href="https://www.linkedin.com/in/snehithaavirneni/" target="_blank" class="btn-style btn-linkedin">
-                        View LinkedIn Profile →
+                <div class="nav-menu">
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#pricing" class="nav-link">Engagement Models</a>
+                    <a href="#reviews" class="nav-link">Reviews</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700;">
+                        Let’s Talk Growth
                     </a>
                 </div>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
+        </header>
+
+        <section class="hero">
+            <h1>
+                Growth Partner for<span class="mobile-br"></span>
+                Early-Stage <span class="desktop-br"></span>
+                and<span class="mobile-br"></span>
+                Scaling B2C Brands
+            </h1>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only">
+                Let’s Talk Growth
+            </a>
+            <p class="microcopy">We’ll review your details and suggest the right engagement.</p>
         </section>
 
-        <div id="reviews" class="section">
-            <h2 class="section-title">What Founders Say</h2>
-            <div class="swipe-container">
-                <div class="swipe-card">
-                    <p class="swipe-quote">Snehitha brought a lot of clarity and momentum to our growth efforts. She was amazing to work with.</p>
-                    <div class="swipe-header">
-                        <img src="akshay.jpg" class="swipe-img" alt="Akshay">
-                        <div>
-                            <span class="swip-author">Akshay Akash</span>
-                            <span class="swip-role">CEO, Stimuler</span>
-                        </div>
+        <section class="marquee-section">
+            <div class="marquee-title">Trusted By</div>
+            <div class="marquee-track">
+                <img src="rummycircle.png" class="marquee-logo">
+                <img src="byjus.png" class="marquee-logo logo-byjus">
+                <img src="stimuler.png" class="marquee-logo">
+                <img src="eternz.png" class="marquee-logo logo-eternz">
+                <img src="limetray.png" class="marquee-logo logo-limetray">
+                
+                <img src="rummycircle.png" class="marquee-logo">
+                <img src="byjus.png" class="marquee-logo logo-byjus">
+                <img src="stimuler.png" class="marquee-logo">
+                <img src="eternz.png" class="marquee-logo logo-eternz">
+                <img src="limetray.png" class="marquee-logo logo-limetray">
+            </div>
+        </section>
+    </div> 
+
+    <section class="section">
+        <h2 class="section-title">Is <span class="brand-text">growth<span class="brand-hq">HQ</span></span> Right For You?</h2>
+        <div class="qual-box">
+            <ul class="check-list">
+                <li>You’re spending or planning to spend on Meta & Google</li>
+                <li>You want better ROAS, not just higher spends</li>
+                <li>You don’t want to hire too early or work with a generic agency</li>
+                <li>You want senior ownership, not trial-and-error execution</li>
+            </ul>
+            <div class="qual-footer">If this sounds like you, keep going. ↓</div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <h2 class="section-title">How We Help Brands Grow?</h2>
+        <div class="services-wrapper">
+            <p class="services-intro">growthHQ works with B2C brands to solve growth problems at different stages — from fixing fundamentals to scaling performance and managing complexity.</p>
+            
+            <div class="services-grid-box">
+                <div class="service-pill">Meta & Google Ads</div>
+                <div class="service-pill">Conversion Rate Optimisation</div>
+                <div class="service-pill">Attribution & Tracking</div>
+                <div class="service-pill">Marketplace Management</div>
+                <div class="service-pill">Creative Strategy</div>
+                <div class="service-pill">Retention & CRM</div>
+                <div class="service-pill">Funnel Analysis</div>
+                <div class="service-pill">Growth Experimentation</div>
+                <div class="service-pill">Influencer Marketing</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="pricing">
+        <h2 class="section-title">Engagement Models</h2>
+        <p style="text-align: center; color: #666;">Transparent pricing to help you assess fit upfront.</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="tier-header-navy">Growth Foundation</div>
+                <div class="tier-price">₹50k – ₹75k / mo</div>
+                <p class="tier-desc">Best for: Early brands or broken setups</p>
+                <ul class="tier-list">
+                    <li>Tracking, attribution & pixel setup</li>
+                    <li>Audit of campaigns & structure</li>
+                    <li>Limited campaigns + monitoring</li>
+                    <li>Up to 20 hours/month</li>
+                </ul>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-deep-navy">Let’s Talk Growth</a>
+            </div>
+
+            <div class="pricing-card brand-green popular">
+                <div class="pop-badge">Most Popular</div>
+                <div class="tier-header-green">Growth Scale Partner</div>
+                <div class="tier-price">₹1L – ₹1.5L / mo</div>
+                <p class="tier-desc">Best for: Scaling Meta & Google</p>
+                <ul class="tier-list">
+                    <li>Hands-on execution (Meta + Google)</li>
+                    <li>Creative & audience A/B testing</li>
+                    <li>Continuous optimisation & scaling</li>
+                    <li>Weekly performance reviews</li>
+                </ul>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green">Let’s Talk Growth</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="tier-header-navy">Growth Ownership</div>
+                <div class="tier-price">₹2L – ₹2.5L / mo</div>
+                <p class="tier-desc">Best for: Complex growth decisions</p>
+                <ul class="tier-list">
+                    <li>Strategy + execution across levers</li>
+                    <li>CRO, retention, CRM & attribution</li>
+                    <li>Weekly founder working sessions</li>
+                    <li>Holistic growth ownership</li>
+                </ul>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-deep-navy">Let’s Talk Growth</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Why Founders Choose <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
+        <div class="comp-grid">
+            <div class="comp-card bad">
+                <div class="comp-title">Typical Agency</div>
+                <div class="comp-subtitle">Works on ad spend commission</div>
+                <ul class="comp-list">
+                    <li>Incentivised to push spend, not efficiency</li>
+                    <li>Early accounts often under-serviced</li>
+                </ul>
+                <div class="result-box result-bad">Result: Expensive mistakes & misalignment.</div>
+            </div>
+
+            <div class="comp-card bad">
+                <div class="comp-title">Hiring In-House</div>
+                <div class="comp-subtitle">Too Early</div>
+                <ul class="comp-list">
+                    <li>Long ramp-up time</li>
+                    <li>Needs constant guidance</li>
+                </ul>
+                <div class="result-box result-bad">Result: Learning slows down, CAC spikes.</div>
+            </div>
+
+            <div class="comp-card good">
+                <div class="comp-title">growthHQ</div>
+                <div class="comp-subtitle" style="color: var(--mint);">Fixed monthly retainer</div>
+                <ul class="comp-list">
+                    <li>Senior-led strategy + execution</li>
+                    <li>Strong foundations before scaling</li>
+                </ul>
+                <div class="result-box result-good">Result: Faster clarity & sustainable growth.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Who’s behind <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
+        <div class="founder-container">
+            <img src="Snehitha.jpg" alt="Snehitha Avirneni - Growth Consultant and Founder of growthHQ" class="founder-img">
+            <div style="flex:1;">
+                <p><strong>growthHQ is led by Snehitha Avirneni</strong>, a growth leader with 11+ years of experience scaling consumer internet and D2C businesses.</p>
+                <div class="founder-stats">
+                    <span class="stat-pill">Managed ₹600 Cr+ Budgets</span>
+                    <span class="stat-pill">3x ROAS</span>
+                    <span class="stat-pill">25% LTV Lift</span>
+                    <span class="stat-pill">40% CAC Reduction</span>
+                </div>
+                <p>Every engagement is personally led by Snehitha. Execution is supported by a trusted network, but ownership always remains senior-led.</p>
+                <br>
+                <a href="https://www.linkedin.com/in/snehithaavirneni/" target="_blank" class="btn-style btn-linkedin">
+                    View LinkedIn Profile →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="reviews" class="section">
+        <h2 class="section-title">What Founders Say</h2>
+        <div class="swipe-container">
+            <div class="swipe-card">
+                <p class="swipe-quote">Snehitha brought a lot of clarity and momentum to our growth efforts. She was amazing to work with.</p>
+                <div class="swipe-header">
+                    <img src="akshay.jpg" class="swipe-img" alt="Akshay">
+                    <div>
+                        <span class="swip-author">Akshay Akash</span>
+                        <span class="swip-role">CEO, Stimuler</span>
                     </div>
                 </div>
-                <div class="swipe-card">
-                    <p class="swipe-quote">Deep understanding of the problem and very effective solutions. Would strongly recommend working with her.</p>
-                    <div class="swipe-header">
-                        <img src="shilpi.jpg" class="swipe-img" alt="Shilpi">
-                        <div>
-                            <span class="swip-author">Shilpi Boylla</span>
-                            <span class="swip-role">Head of Design, Datatribe</span>
-                        </div>
+            </div>
+            <div class="swipe-card">
+                <p class="swipe-quote">Deep understanding of the problem and very effective solutions. Would strongly recommend working with her.</p>
+                <div class="swipe-header">
+                    <img src="shilpi.jpg" class="swipe-img" alt="Shilpi">
+                    <div>
+                        <span class="swip-author">Shilpi Boylla</span>
+                        <span class="swip-role">Head of Design, Datatribe</span>
                     </div>
                 </div>
-                <div class="swipe-card">
-                    <p class="swipe-quote">Extremely focused, responsible, and always delivered on time. I wish her all the best.</p>
-                    <div class="swipe-header">
-                        <img src="puneet.jpg" class="swipe-img" alt="Puneet">
-                        <div>
-                            <span class="swip-author">Puneet Kansal</span>
-                            <span class="swip-role">Founder, Rolls Mania</span>
-                        </div>
+            </div>
+            <div class="swipe-card">
+                <p class="swipe-quote">Extremely focused, responsible, and always delivered on time. I wish her all the best.</p>
+                <div class="swipe-header">
+                    <img src="puneet.jpg" class="swipe-img" alt="Puneet">
+                    <div>
+                        <span class="swip-author">Puneet Kansal</span>
+                        <span class="swip-role">Founder, Rolls Mania</span>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <section id="contact" class="section" style="text-align:center; padding-bottom: 2rem;">
-            <h2 class="section-title" style="margin-bottom: 1rem;">Ready To Grow With Clarity?</h2>
-            <p style="color:#666; margin-bottom: 2rem;">Share a few details about your business and growth goals. We’ll review and recommend the right next step.</p>
-            
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only" style="width: auto; display: inline-block; padding: 1rem 2.5rem;">
-                Let’s Talk Growth
-            </a>
-        </section>
-    </main>
+    <section id="contact" class="section" style="text-align:center; padding-bottom: 2rem;">
+        <h2 class="section-title" style="margin-bottom: 1rem;">Ready To Grow With Clarity?</h2>
+        <p style="color:#666; margin-bottom: 2rem;">Share a few details about your business and growth goals. We’ll review and recommend the right next step.</p>
+        
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only" style="width: auto; display: inline-block; padding: 1rem 2.5rem;">
+            Let’s Talk Growth
+        </a>
+    </section>
 
     <footer>
         <div class="footer-content">
@@ -714,11 +511,12 @@
                 <img src="logo.png" alt="growthHQ - B2C Growth Agency Logo" class="footer-logo">
                 <p class="footer-text">Growth partner for early-stage and scaling B2C brands.</p>
                 <p class="footer-subtext">Led by Snehitha Avirneni</p>
-                <a href="https://www.linkedin.com/in/snehithaavirneni/" target="_blank" class="footer-link-highlight">Connect on LinkedIn</a>
-                <a href="mailto:snehitha@growthhq.in" class="footer-email">Email ID: snehitha@growthhq.in</a>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/snehithaavirneni/" target="_blank">Connect on LinkedIn</a>
+                    <a href="mailto:snehitha@growthhq.in">Email ID: snehitha@growthhq.in</a>
+                </div>
             </div>
         </div>
-
         <div class="footer-bottom">
             &copy; 2025 growthHQ. All rights reserved.
         </div>
@@ -730,41 +528,12 @@
         </a>
     </div>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "growthHQ",
-      "image": "https://growthhq.in/logo.png",
-      "@id": "https://growthhq.in",
-      "url": "https://growthhq.in",
-      "telephone": "", 
-      "email": "snehitha@growthhq.in",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Hyderabad",
-        "addressRegion": "Telangana",
-        "addressCountry": "IN"
-      },
-      "founder": {
-        "@type": "Person",
-        "name": "Snehitha Avirneni",
-        "sameAs": "https://www.linkedin.com/in/snehithaavirneni/"
-      },
-      "description": "Growth partner for early-stage and scaling B2C brands. Specializing in performance marketing, CRO, and retention.",
-      "sameAs": [
-        "https://www.linkedin.com/in/snehithaavirneni/"
-      ],
-      "priceRange": "$$"
-    }
-    </script>
-
     <script>
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
         const navLink = document.querySelectorAll(".nav-link");
         const stickyBar = document.querySelector('.mobile-sticky-bar');
-        const heroSection = document.querySelector('.hero');
+        const firstScroll = document.querySelector('.first-scroll-wrapper');
         const footerSection = document.querySelector('footer');
 
         hamburger.addEventListener("click", () => {
@@ -792,11 +561,11 @@
             });
         }, observerOptions);
 
-        observer.observe(heroSection);
+        observer.observe(firstScroll);
         observer.observe(footerSection);
 
         function checkVisibility() {
-            const heroRect = heroSection.getBoundingClientRect();
+            const heroRect = firstScroll.getBoundingClientRect();
             const footerRect = footerSection.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
@@ -811,7 +580,6 @@
         }
 
         window.addEventListener('scroll', checkVisibility);
-
     </script>
 
 </body>
