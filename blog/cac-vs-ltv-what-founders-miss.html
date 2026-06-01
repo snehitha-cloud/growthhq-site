@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAC vs LTV: What Most Founders Get Wrong | GrowthHQ Blog</title>
+    <meta name="description" content="Optimising for CAC alone is a trap. Brands that scale profitably think in cohorts, payback periods, and contribution margin. Here's how to calculate LTV and CAC correctly for D2C.">
+    <meta name="author" content="Snehitha Avirneni">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://growthhq.in/blog/cac-vs-ltv-what-founders-miss.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="CAC vs LTV: What Most Founders Get Wrong">
+    <meta property="og:description" content="Optimising for CAC alone is a trap. Here's how to think about unit economics correctly for sustainable D2C growth.">
+    <meta property="og:url" content="https://growthhq.in/blog/cac-vs-ltv-what-founders-miss.html">
+    <meta property="og:image" content="https://growthhq.in/social-preview.png">
+    <meta property="article:author" content="Snehitha Avirneni">
+    <meta property="article:published_time" content="2025-04-01">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CAC vs LTV: What Most Founders Get Wrong">
+    <meta name="twitter:description" content="Optimising for CAC alone is a trap. Here's how to think about unit economics correctly.">
+    <meta name="twitter:image" content="https://growthhq.in/social-preview.png">
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "CAC vs LTV: What Most Founders Get Wrong",
+      "description": "Optimising for CAC alone is a trap. Brands that scale profitably think in cohorts, payback periods, and contribution margin — not just ROAS.",
+      "author": { "@type": "Person", "name": "Snehitha Avirneni", "url": "https://www.linkedin.com/in/snehithaavirneni/" },
+      "publisher": { "@type": "Organization", "name": "GrowthHQ", "url": "https://growthhq.in" },
+      "datePublished": "2025-04-01",
+      "url": "https://growthhq.in/blog/cac-vs-ltv-what-founders-miss.html",
+      "mainEntityOfPage": "https://growthhq.in/blog/cac-vs-ltv-what-founders-miss.html",
+      "keywords": ["CAC LTV ratio", "customer acquisition cost", "lifetime value", "D2C unit economics", "payback period", "contribution margin"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://growthhq.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://growthhq.in/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "CAC vs LTV: What Most Founders Get Wrong", "item": "https://growthhq.in/blog/cac-vs-ltv-what-founders-miss.html" }
+      ]
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --mint: #18cb96; --dark: #2e2e3a; --deep-navy: #021e44; --text-gray: #555560; --white: #ffffff; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; margin: 0; color: var(--dark); background: #fff; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        header { background: var(--deep-navy); padding: 1rem 4%; }
+        .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo img { height: 48px; width: auto; display: block; }
+        .back-link { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .back-link:hover { color: var(--mint); }
+        .post-wrapper { max-width: 720px; margin: 3rem auto; padding: 0 1.5rem 4rem; }
+        .post-tag { display: inline-block; background: #e8fdf5; color: var(--mint); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 12px; border-radius: 20px; margin-bottom: 1.2rem; }
+        h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; margin: 0 0 1rem; color: var(--dark); }
+        .post-meta { font-size: 0.85rem; color: #aaa; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #f0f0f0; }
+        h2 { font-size: 1.25rem; font-weight: 700; margin-top: 2.5rem; color: var(--dark); }
+        p { color: var(--text-gray); margin: 0 0 1.2rem; }
+        ul { color: var(--text-gray); padding-left: 1.5rem; margin: 0 0 1.2rem; }
+        li { margin-bottom: 0.6rem; }
+        .highlight-box { background: #f0fdf9; border-left: 4px solid var(--mint); padding: 1.2rem 1.5rem; border-radius: 0 12px 12px 0; margin: 2rem 0; }
+        .highlight-box p { color: var(--dark); font-weight: 600; margin: 0; }
+        .cta-section { background: var(--deep-navy); border-radius: 20px; padding: 2.5rem; text-align: center; margin-top: 3rem; }
+        .cta-section h3 { color: white; font-size: 1.3rem; margin: 0 0 0.8rem; }
+        .cta-section p { color: rgba(255,255,255,0.7); margin: 0 0 1.5rem; }
+        .cta-btn { display: inline-block; background: var(--mint); color: white; padding: 0.9rem 2rem; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 1rem; }
+        @media (min-width: 900px) { h1 { font-size: 2.6rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="../" class="nav-logo"><img src="../logo.png" alt="GrowthHQ"></a>
+            <a href="../#blog" class="back-link">← Back to Blog</a>
+        </div>
+    </header>
+
+    <div class="post-wrapper">
+        <span class="post-tag">Growth Strategy</span>
+        <h1>CAC vs LTV: What Most Founders Get Wrong</h1>
+        <div class="post-meta">By Snehitha Avirneni &nbsp;·&nbsp; April 2025 &nbsp;·&nbsp; 4 min read</div>
+
+        <p>Every founder knows CAC and LTV matter. Very few are calculating them in a way that's actually useful for decisions. Here's where the thinking usually breaks down — and how to fix it.</p>
+
+        <h2>The CAC Trap</h2>
+        <p>Most brands obsess over lowering CAC. That's reasonable on the surface, but CAC in isolation tells you almost nothing. A ₹500 CAC is great if LTV is ₹3,000. It's terrible if LTV is ₹600. The question is never "how low is our CAC?" — it's "how fast does our CAC pay back, and what does the customer do after?"</p>
+
+        <div class="highlight-box">
+            <p>Optimising for CAC without understanding contribution margin and payback period is how brands scale themselves into a cash flow crisis.</p>
+        </div>
+
+        <h2>LTV is Not a Lifetime Number</h2>
+        <p>When founders say LTV, they usually mean a projected average over 12–24 months, often based on overall average order value × purchase frequency. The problem: this blends your best customers with your one-time buyers and gives you a number that's hard to act on.</p>
+
+        <p>More useful: calculate LTV by cohort. Group customers by acquisition month, then track what each cohort spends at 30, 60, 90, 180, and 365 days. This tells you whether newer customers are better or worse than older ones — which is the signal you actually need to make budget decisions.</p>
+
+        <h2>Payback Period is the Real Metric</h2>
+        <p>The metric that connects CAC and LTV in a usable way is <strong>payback period</strong>: how many months does it take for a customer's contribution margin to recover the cost of acquiring them?</p>
+        <ul>
+            <li>Under 3 months: you can scale aggressively</li>
+            <li>3–6 months: scale carefully, watch cash flow</li>
+            <li>6–12 months: growth is risky without strong retention</li>
+            <li>Over 12 months: your unit economics need fixing before you scale</li>
+        </ul>
+
+        <h2>Contribution Margin, Not Revenue</h2>
+        <p>One more common error: calculating LTV on revenue instead of contribution margin. If your AOV is ₹1,200 but after COGS, shipping, payment gateway fees, and returns your contribution per order is ₹400, then your LTV on a 3-purchase customer is ₹1,200 — not ₹3,600. Basing CAC targets on revenue LTV means you're structurally losing money on every customer you acquire.</p>
+
+        <h2>How to Use This Practically</h2>
+        <p>Build a simple cohort table in a spreadsheet. For each acquisition month, track cumulative revenue and cumulative contribution margin at each time interval. Set a target payback period based on your cash runway. Then set your CAC ceiling accordingly — and hold to it even when it means not scaling as fast as you'd like.</p>
+
+        <p>The brands that build durable growth aren't the ones with the lowest CAC. They're the ones who know exactly what a customer is worth and spend accordingly.</p>
+
+        <div class="cta-section">
+            <h3>Want to build this framework for your brand?</h3>
+            <p>We help founders understand their unit economics and build scalable growth engines.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="cta-btn">Let's Talk Growth</a>
+        </div>
+    </div>
+</body>
+</html>

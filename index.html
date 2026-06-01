@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>GrowthHQ | Growth Partner for Early-Stage & Scaling B2C Brands</title>
-    <meta name="description" content="growthHQ helps consumer brands fix growth fundamentals, scale Meta & Google ads profitably, and solve challenges across the funnel. Founder-led growth by Snehitha Avirneni.">
+    <meta name="description" content="GrowthHQ helps D2C and consumer brands fix growth fundamentals, scale Meta & Google ads profitably, and solve funnel challenges. Senior-led, founder-facing. Based in India.">
     <meta name="robots" content="index, follow">
-    
+    <meta name="author" content="Snehitha Avirneni">
+
     <link rel="canonical" href="https://growthhq.in/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="growthHQ">
-    <meta property="og:description" content="Growth partner for early-stage and scaling B2C brands.">
+    <meta property="og:title" content="GrowthHQ | Growth Partner for B2C Brands">
+    <meta property="og:description" content="Senior-led growth partner for early-stage and scaling B2C brands. Meta & Google ads, CRO, attribution, and retention — all under one roof.">
     <meta property="og:image" content="https://growthhq.in/social-preview.png">
-    <meta property="og:url" content="https://www.growthhq.in" />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://growthhq.in/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GrowthHQ | Growth Partner for B2C Brands">
+    <meta name="twitter:description" content="Senior-led growth partner for early-stage and scaling B2C brands.">
+    <meta name="twitter:image" content="https://growthhq.in/social-preview.png">
     <link rel="icon" type="image/png" href="favicon.png"> 
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,15 +26,15 @@
     <style>
         :root {
             --mint: #18cb96;
+            --mint-light: rgba(24, 203, 150, 0.12);
+            --mint-hover: #10a87c;
             --dark: #2e2e3a;
-            --deep-navy: #021e44; 
+            --deep-navy: #021e44;
             --text-gray: #555560;
             --white: #ffffff;
             --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f9fbfb 100%);
-            --danger-text: #c53030;
             --success-bg: #f0fdf9;
             --success-text: #0d8a6a;
-            --tier-2: #2d9cdb;
         }
         
         * { box-sizing: border-box; scroll-behavior: smooth; }
@@ -122,8 +126,8 @@
             padding: 0 1rem; 
         }
         
-        .hero h1 { 
-            font-family: 'Hero', 'Inter', sans-serif;
+        .hero h1 {
+            font-family: 'Inter', sans-serif;
             font-weight: 700;
             font-size: 36px;       
             line-height: 1.15;     
@@ -219,6 +223,7 @@
         .comp-list { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
         .comp-list li { margin-bottom: 0.8rem; font-size: 0.95rem; position: relative; padding-left: 25px; line-height: 1.5; color: var(--text-gray); }
         .comp-list li::before { content: '•'; position: absolute; left: 0; top: 0; font-size: 1.2rem; color: #ccc; }
+        .result-box { margin-top: auto; }
         .result-good { background: var(--success-bg); color: var(--success-text); padding: 0.8rem; border-radius: 8px; font-weight: 600; margin-top: auto; }
         .result-bad { background: #f3f4f6; color: #4b5563; padding: 0.8rem; border-radius: 8px; font-weight: 600; margin-top: auto; }
 
@@ -235,16 +240,42 @@
         .swip-author { font-weight: 700; color: var(--dark); display: block; font-size: 0.95rem; }
         .swip-role { font-size: 0.8rem; color: var(--mint-hover); }
 
-        footer { 
-            background-color: var(--dark); 
-            color: var(--white); 
-            /* Changed from 4rem to 2rem */
-            padding: 2rem 1.5rem; 
-            text-align: center; 
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
         }
-        .footer-logo { height: 48px; width: auto; margin-bottom: 1.5rem; object-fit: contain; }
-        .footer-links a { color: var(--mint); text-decoration: none; display: block; margin: 0.5rem 0; }
-        .footer-bottom { margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+        .footer-logo { height: 48px; width: auto; margin-bottom: 1.2rem; object-fit: contain; }
+        .footer-text { font-size: 0.95rem; color: rgba(255,255,255,0.7); margin: 0 0 0.3rem; }
+        .footer-subtext { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin: 0 0 1.2rem; }
+        .footer-links a { color: var(--mint); text-decoration: none; display: block; margin: 0.4rem 0; font-size: 0.9rem; }
+        .footer-bottom { margin-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+        /* --- BLOG SECTION --- */
+        .blog-featured { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+        .blog-featured-card { background: var(--white); border-radius: 20px; border: 2px solid var(--mint); overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; }
+        .blog-featured-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(24,203,150,0.15); }
+        .blog-featured-body { padding: 1.8rem; }
+        .blog-tag { display: inline-block; background: #e8fdf5; color: var(--mint); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 20px; margin-bottom: 0.8rem; }
+        .blog-featured-title { font-size: 1.4rem; font-weight: 800; color: var(--dark); margin: 0 0 0.7rem; line-height: 1.3; }
+        .blog-excerpt { color: var(--text-gray); font-size: 0.95rem; line-height: 1.6; margin: 0 0 1.2rem; }
+        .blog-meta { font-size: 0.8rem; color: #aaa; font-weight: 500; }
+        .blog-read-more { color: var(--mint); font-weight: 700; font-size: 0.9rem; }
+
+        .blog-grid { display: grid; grid-template-columns: 1fr; gap: 1.2rem; margin-top: 1.5rem; }
+        .blog-card { background: var(--white); border: 1px solid #eee; border-radius: 16px; padding: 1.5rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+        .blog-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .blog-card-title { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin: 0.5rem 0 0.6rem; line-height: 1.4; }
+        .blog-card-excerpt { color: var(--text-gray); font-size: 0.88rem; line-height: 1.6; margin: 0 0 1rem; flex-grow: 1; }
+
+        @media (min-width: 900px) {
+            .blog-featured { flex-direction: row; align-items: stretch; }
+            .blog-featured-card { flex: 1.4; }
+            .blog-featured-title { font-size: 1.7rem; }
+            .blog-grid { grid-template-columns: repeat(2, 1fr); flex: 1; }
+            .blog-grid-wrapper { flex: 1; display: flex; flex-direction: column; }
+        }
 
         .mobile-sticky-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); padding: 1rem; box-shadow: 0 -4px 20px rgba(0,0,0,0.1); z-index: 2000; display: flex; justify-content: center; transition: transform 0.3s; }
         .mobile-sticky-bar.hidden { transform: translateY(100%); }
@@ -318,6 +349,7 @@
                     <a href="#services" class="nav-link">Services</a>
                     <a href="#pricing" class="nav-link">Engagement Models</a>
                     <a href="#reviews" class="nav-link">Reviews</a>
+                    <a href="#blog" class="nav-link">Blog</a>
                     <a href="#contact" class="nav-link">Contact</a>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700;">
                         Let’s Talk Growth
@@ -365,7 +397,7 @@
     </div> 
 
     <section class="section">
-        <h2 class="section-title">Is <span class="brand-text">growth<span class="brand-hq">HQ</span></span> Right For You?</h2>
+        <h2 class="section-title">Is This the Right Fit for You?</h2>
         <div class="qual-box">
             <ul class="check-list">
                 <li>You’re spending or planning to spend on Meta & Google</li>
@@ -380,7 +412,7 @@
     <section class="section" id="services">
         <h2 class="section-title">How We Help Brands Grow?</h2>
         <div class="services-wrapper">
-            <p class="services-intro">GrowthHQ works with B2C brands to solve growth problems at different stages — from fixing fundamentals to scaling performance and managing complexity.</p>
+            <p class="services-intro">We work with B2C brands to solve growth problems at different stages — from fixing fundamentals to scaling performance and managing complexity.</p>
             
             <div class="services-grid-box">
                 <div class="service-pill">Meta & Google Ads</div>
@@ -444,7 +476,7 @@
     </section>
 
     <section class="section">
-        <h2 class="section-title">Why Founders Choose <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
+        <h2 class="section-title">Why Founders Choose <span class="brand-text">Growth<span class="brand-hq">HQ</span></span>?</h2>
         <div class="comp-grid">
             <div class="comp-card bad">
                 <div class="comp-title">Typical Agency</div>
@@ -479,11 +511,11 @@
     </section>
 
     <section class="section">
-        <h2 class="section-title">Who’s behind <span class="brand-text">growth<span class="brand-hq">HQ</span></span>?</h2>
+        <h2 class="section-title">Meet the Founder</h2>
         <div class="founder-container">
             <img src="Snehitha.jpg" alt="Snehitha Avirneni - Growth Consultant and Founder of GrowthHQ" class="founder-img">
             <div style="flex:1;">
-                <p><strong>GrowthHQ is led by Snehitha Avirneni</strong>, a growth leader with 11+ years of experience scaling consumer internet and D2C businesses.</p>
+                <p><strong>Snehitha Avirneni</strong> is a growth leader with 11+ years of experience scaling consumer internet and D2C businesses.</p>
                 <div class="founder-stats">
                     <span class="stat-pill">Managed ₹600 Cr+ Budgets</span>
                     <span class="stat-pill">3x ROAS</span>
@@ -535,6 +567,61 @@
         </div>
     </div>
 
+    <section id="blog" class="section">
+        <h2 class="section-title">From The <span class="brand-text">Growth<span class="brand-hq">HQ</span></span> Blog</h2>
+        <p style="text-align:center; color:#666; margin-top:-1rem; margin-bottom:0;">Practical insights on performance marketing, CRO, and scaling B2C brands.</p>
+
+        <div class="blog-featured">
+            <a href="blog/why-your-meta-roas-is-a-lie.html" class="blog-featured-card">
+                <div class="blog-featured-body">
+                    <span class="blog-tag">Performance Marketing</span>
+                    <h3 class="blog-featured-title">Why Your Meta ROAS Is a Lie (And What to Track Instead)</h3>
+                    <p class="blog-excerpt">Reported ROAS from Meta Ads Manager is almost always inflated. Here's how attribution windows, view-through conversions, and overlapping audiences silently destroy your decision-making — and what numbers actually matter.</p>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span class="blog-meta">June 2025 · 6 min read</span>
+                        <span class="blog-read-more">Read article →</span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="blog-grid-wrapper">
+                <div class="blog-grid">
+                    <a href="blog/fix-your-tracking-before-scaling.html" class="blog-card">
+                        <span class="blog-tag">Attribution</span>
+                        <div class="blog-card-title">Fix Your Tracking Before You Scale Ads</div>
+                        <p class="blog-card-excerpt">Scaling on broken data is the fastest way to burn budget. Here's the tracking audit every D2C brand should run before increasing spend.</p>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span class="blog-meta">May 2025 · 5 min read</span>
+                            <span class="blog-read-more">Read →</span>
+                        </div>
+                    </a>
+                    <a href="blog/cac-vs-ltv-what-founders-miss.html" class="blog-card">
+                        <span class="blog-tag">Growth Strategy</span>
+                        <div class="blog-card-title">CAC vs LTV: What Most Founders Get Wrong</div>
+                        <p class="blog-card-excerpt">Optimising for CAC alone is a trap. The brands that scale profitably think in cohorts, payback periods, and contribution margin — not just ROAS.</p>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span class="blog-meta">April 2025 · 4 min read</span>
+                            <span class="blog-read-more">Read →</span>
+                        </div>
+                    </a>
+                    <a href="blog/creative-testing-framework.html" class="blog-card">
+                        <span class="blog-tag">Creative Strategy</span>
+                        <div class="blog-card-title">A Simple Creative Testing Framework That Actually Works</div>
+                        <p class="blog-card-excerpt">Most brands test creatives wrong — too many variables, too little volume. Here's a structured approach to finding winning hooks faster.</p>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span class="blog-meta">March 2025 · 5 min read</span>
+                            <span class="blog-read-more">Read →</span>
+                        </div>
+                    </a>
+                    <a href="blog/index.html" class="blog-card" style="background:#f9fbfb; border-style:dashed; justify-content:center; align-items:center; text-align:center; min-height:120px;">
+                        <div style="color:var(--mint); font-weight:700; font-size:1rem;">View All Articles →</div>
+                        <div style="color:#aaa; font-size:0.85rem; margin-top:0.4rem;">More insights coming soon</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="section" style="text-align:center; padding-bottom: 2rem;">
         <h2 class="section-title" style="margin-bottom: 1rem;">Ready To Grow With Clarity?</h2>
         <p style="color:#666; margin-bottom: 2rem;">Share a few details about your business and growth goals. We’ll review and recommend the right next step.</p>
@@ -575,7 +662,6 @@
       "image": "https://growthhq.in/logo.png",
       "@id": "https://growthhq.in",
       "url": "https://growthhq.in",
-      "telephone": "", 
       "email": "snehitha@growthhq.in",
       "address": {
         "@type": "PostalAddress",
@@ -586,13 +672,63 @@
       "founder": {
         "@type": "Person",
         "name": "Snehitha Avirneni",
+        "jobTitle": "Founder & Growth Consultant",
         "sameAs": "https://www.linkedin.com/in/snehithaavirneni/"
       },
-      "description": "Growth partner for early-stage and scaling B2C brands. Specializing in performance marketing, CRO, and retention.",
-      "sameAs": [
-        "https://www.linkedin.com/in/snehithaavirneni/"
-      ],
-      "priceRange": "$$"
+      "description": "GrowthHQ is a senior-led growth consultancy for early-stage and scaling B2C brands in India. Services include Meta & Google Ads management, conversion rate optimisation, attribution setup, creative strategy, and retention.",
+      "knowsAbout": ["Performance Marketing", "Meta Ads", "Google Ads", "Conversion Rate Optimisation", "D2C Growth", "Customer Acquisition", "Attribution Tracking", "Retention Marketing"],
+      "areaServed": "IN",
+      "sameAs": ["https://www.linkedin.com/in/snehithaavirneni/"],
+      "priceRange": "₹₹"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does GrowthHQ do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GrowthHQ is a growth consultancy for early-stage and scaling B2C brands. We handle Meta & Google Ads management, conversion rate optimisation, attribution tracking, creative strategy, retention, and funnel analysis — all under senior-led ownership by Snehitha Avirneni."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is GrowthHQ right for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GrowthHQ works best with brands that are spending or planning to spend on Meta and Google Ads, want better ROAS without just increasing spend, and prefer senior ownership over trial-and-error execution from a generic agency."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does GrowthHQ charge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GrowthHQ offers three engagement models: Growth Foundation at ₹50k–₹75k/month for early brands fixing fundamentals; Growth Scale Partner at ₹1L–₹1.5L/month for brands actively scaling Meta & Google Ads; and Growth Ownership at ₹2L–₹2.5L/month for complex, holistic growth management."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who leads the work at GrowthHQ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every engagement is personally led by Snehitha Avirneni, a growth leader with 11+ years of experience scaling consumer internet and D2C businesses. She has managed ₹600 Cr+ in ad budgets and delivered results including 3x ROAS, 25% LTV lift, and 40% CAC reduction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is GrowthHQ different from a typical marketing agency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unlike typical agencies that earn commissions on ad spend (and are incentivised to push spend, not efficiency), GrowthHQ charges a fixed monthly retainer. This aligns our incentives with your growth — we win only when you grow profitably."
+          }
+        }
+      ]
     }
     </script>
 
