@@ -50,11 +50,35 @@
         :root { --mint: #18cb96; --dark: #2e2e3a; --deep-navy: #021e44; --text-gray: #555560; --white: #ffffff; }
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; margin: 0; color: var(--dark); background: #fff; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-        header { background: var(--deep-navy); padding: 1rem 4%; }
-        .nav-container { max-width: 1100px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo img { height: 48px; width: auto; display: block; }
-        .back-link { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
-        .back-link:hover { color: var(--mint); }
+        body { padding-top: 73px; }
+        .nav-header { position: fixed; top: 0; background-color: #021e44; border-bottom: 1px solid rgba(255,255,255,0.1); z-index: 9999; width: 100%; padding: 0.8rem 4%; }
+        .nav-container { max-width: 1350px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo-link img { height: 52px; width: auto; display: block; object-fit: contain; }
+        .hamburger { display: block; cursor: pointer; z-index: 10001; }
+        .bar { display: block; width: 30px; height: 3px; margin: 6px auto; transition: 0.3s; background-color: white; border-radius: 2px; }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        .nav-menu { position: fixed; left: -100%; top: 73px; width: 100%; background-color: #021e44; flex-direction: column; text-align: center; transition: 0.3s; padding: 2rem 0; box-shadow: 0 10px 10px rgba(0,0,0,0.2); display: flex; z-index: 10000; }
+        .nav-menu.active { left: 0; }
+        .nav-menu a { display: block; padding: 1rem 0; color: rgba(255,255,255,0.9); font-weight: 500; text-decoration: none; font-size: 1.1rem; }
+        .nav-cta { display: none !important; }
+        @media (min-width: 900px) {
+            .nav-logo-link img { height: 55px; }
+            .hamburger { display: none; }
+            .nav-menu { position: static; flex-direction: row; background: none; width: auto; padding: 0; box-shadow: none; left: 0; top: auto; align-items: center; gap: 2rem; display: flex !important; }
+            .nav-menu a { display: inline-block; padding: 0; color: rgba(255,255,255,0.8); }
+            .nav-cta { display: inline-flex !important; align-items: center; justify-content: center; white-space: nowrap; background: #18cb96; padding: 0.7rem 1.5rem; border-radius: 50px; color: white !important; font-weight: 700; text-decoration: none; }
+        }
+        .related-section { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; border-top: 1px solid #f0f0f0; }
+        .related-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #aaa; margin-bottom: 1.2rem; }
+        .related-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        .related-card { background: #fff; border: 1px solid #eee; border-radius: 14px; padding: 1.3rem; text-decoration: none; color: inherit; display: block; transition: transform 0.2s, box-shadow 0.2s; }
+        .related-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+        .related-card-tag { display: inline-block; background: #e8fdf5; color: #18cb96; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 9px; border-radius: 20px; margin-bottom: 0.5rem; }
+        .related-card-title { font-size: 0.92rem; font-weight: 700; color: #2e2e3a; margin: 0 0 0.5rem; line-height: 1.4; }
+        .related-card-meta { font-size: 0.75rem; color: #aaa; }
+        @media (min-width: 700px) { .related-grid { grid-template-columns: repeat(3, 1fr); } }
         .post-wrapper { max-width: 720px; margin: 3rem auto; padding: 0 1.5rem 4rem; }
         .post-tag { display: inline-block; background: #e8fdf5; color: var(--mint); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 12px; border-radius: 20px; margin-bottom: 1.2rem; }
         h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; margin: 0 0 1rem; color: var(--dark); }
@@ -73,10 +97,20 @@
     </style>
 </head>
 <body>
-    <header>
+    <header class="nav-header">
         <div class="nav-container">
-            <a href="../" class="nav-logo"><img src="../logo.png" alt="GrowthHQ"></a>
-            <a href="../#blog" class="back-link">← Back to Blog</a>
+            <a href="../" class="nav-logo-link"><img src="../logo.png" alt="GrowthHQ"></a>
+            <div class="nav-menu">
+                <a href="../#services">Services</a>
+                <a href="../#pricing">Engagement Models</a>
+                <a href="../#reviews">Reviews</a>
+                <a href="/blog/">Blog</a>
+                <a href="../#contact">Contact</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta">Let's Talk Growth</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
         </div>
     </header>
 
@@ -133,5 +167,32 @@
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="cta-btn">Let's Talk Growth</a>
         </div>
     </div>
+
+    <div class="related-section">
+        <div class="related-label">More From The Blog</div>
+        <div class="related-grid">
+            <a href="why-your-meta-roas-is-a-lie.html" class="related-card">
+                <span class="related-card-tag">Performance Marketing</span>
+                <div class="related-card-title">Why Your Meta ROAS Is a Lie (And What to Track Instead)</div>
+                <div class="related-card-meta">June 2025 · 6 min read</div>
+            </a>
+            <a href="fix-your-tracking-before-scaling.html" class="related-card">
+                <span class="related-card-tag">Attribution</span>
+                <div class="related-card-title">Fix Your Tracking Before You Scale Ads</div>
+                <div class="related-card-meta">May 2025 · 5 min read</div>
+            </a>
+            <a href="cac-vs-ltv-what-founders-miss.html" class="related-card">
+                <span class="related-card-tag">Growth Strategy</span>
+                <div class="related-card-title">CAC vs LTV: What Most Founders Get Wrong</div>
+                <div class="related-card-meta">April 2025 · 4 min read</div>
+            </a>
+        </div>
+    </div>
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        hamburger.addEventListener("click", () => { hamburger.classList.toggle("active"); navMenu.classList.toggle("active"); });
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => { hamburger.classList.remove("active"); navMenu.classList.remove("active"); }));
+    </script>
 </body>
 </html>
