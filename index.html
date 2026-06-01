@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>GrowthHQ | Growth Partner for Early-Stage & Scaling B2C Brands</title>
-    <meta name="description" content="GrowthHQ helps D2C and consumer brands fix growth fundamentals, scale Meta & Google ads profitably, and solve funnel challenges. Senior-led, founder-facing. Based in India.">
+    <title>GrowthHQ | AI-Native Growth Partner for Scaling Brands</title>
+    <meta name="description" content="GrowthHQ is an AI-native growth partner for scaling brands — combining senior expertise with AI-powered tools to fix growth fundamentals, scale Meta & Google ads profitably, and drive sustainable growth.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Snehitha Avirneni">
 
     <link rel="canonical" href="https://growthhq.in/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="GrowthHQ | Growth Partner for B2C Brands">
-    <meta property="og:description" content="Senior-led growth partner for early-stage and scaling B2C brands. Meta & Google ads, CRO, attribution, and retention — all under one roof.">
+    <meta property="og:title" content="GrowthHQ | AI-Native Growth Partner for Scaling Brands">
+    <meta property="og:description" content="AI-native growth partner for scaling brands. Senior expertise + AI-powered tools for Meta & Google ads, CRO, attribution, and retention.">
     <meta property="og:image" content="https://growthhq.in/social-preview.png">
     <meta property="og:url" content="https://growthhq.in/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GrowthHQ | Growth Partner for B2C Brands">
-    <meta name="twitter:description" content="Senior-led growth partner for early-stage and scaling B2C brands.">
+    <meta name="twitter:title" content="GrowthHQ | AI-Native Growth Partner for Scaling Brands">
+    <meta name="twitter:description" content="AI-native growth partner for scaling brands — senior expertise powered by AI tools.">
     <meta name="twitter:image" content="https://growthhq.in/social-preview.png">
     <link rel="icon" type="image/png" href="favicon.png"> 
 
@@ -25,6 +25,7 @@
     
     <style>
         :root {
+            --header-height: 73px;
             --mint: #18cb96;
             --mint-light: rgba(24, 203, 150, 0.12);
             --mint-hover: #10a87c;
@@ -53,22 +54,22 @@
         .first-scroll-wrapper {
             display: flex;
             flex-direction: column;
-            height: 100vh; 
-            height: 100dvh; 
+            height: 100vh;
+            height: 100dvh;
+            padding-top: var(--header-height);
             width: 100%;
-            justify-content: space-between; 
+            justify-content: space-between;
         }
 
         /* --- 2. NAVIGATION (Sticky) --- */
         header.nav-header {
-            position: sticky;
+            position: fixed;
             top: 0;
             background-color: var(--deep-navy);
             border-bottom: 1px solid rgba(255,255,255,0.1);
             z-index: 9999;
             width: 100%;
-            padding: 0.8rem 4%; 
-            flex-shrink: 0; 
+            padding: 0.8rem 4%;
         }
 
         .nav-container {
@@ -190,7 +191,7 @@
             margin: auto; 
         }
         .section-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 2rem; text-align: center; color: var(--dark); }
-        .brand-text { font-weight: 800; color: var(--dark); } .brand-hq { color: var(--mint); }
+        .brand-text { font-weight: 800; color: var(--dark); } .brand-hq { color: var(--dark); font-weight: 800; }
 
         .qual-box { background: var(--white); border: 2px solid var(--mint-light); border-radius: 16px; padding: 2rem 1.5rem; }
         .check-list { list-style: none; padding: 0; margin: 0; }
@@ -272,6 +273,9 @@
         @media (min-width: 900px) {
             .blog-featured { flex-direction: row; align-items: stretch; }
             .blog-featured-card { flex: 1.4; }
+            .blog-featured-card::before { content: ''; display: block; height: 5px; background: linear-gradient(90deg, var(--mint) 0%, var(--deep-navy) 100%); border-radius: 18px 18px 0 0; flex-shrink: 0; }
+            .blog-featured-body { flex: 1; display: flex; flex-direction: column; }
+            .blog-excerpt { flex-grow: 1; }
             .blog-featured-title { font-size: 1.7rem; }
             .blog-grid { grid-template-columns: repeat(2, 1fr); flex: 1; }
             .blog-grid-wrapper { flex: 1; display: flex; flex-direction: column; }
@@ -349,7 +353,7 @@
                     <a href="#services" class="nav-link">Services</a>
                     <a href="#pricing" class="nav-link">Engagement Models</a>
                     <a href="#reviews" class="nav-link">Reviews</a>
-                    <a href="#blog" class="nav-link">Blog</a>
+                    <a href="/blog/" class="nav-link">Blog</a>
                     <a href="#contact" class="nav-link">Contact</a>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="nav-cta desktop-only" style="background: var(--mint); padding: 0.7rem 1.5rem; border-radius: 50px; color: white; text-decoration: none; font-weight: 700;">
                         Let’s Talk Growth
@@ -366,10 +370,8 @@
 
         <section class="hero">
             <h1>
-                Growth Partner for<span class="mobile-br"></span>
-                Early-Stage <span class="desktop-br"></span>
-                and<span class="mobile-br"></span>
-                Scaling B2C Brands
+                AI-Native Growth Partner<span class="desktop-br"></span>
+                for Scaling Brands
             </h1>
             
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtk4_Y8TMeiO8u-BzEZioadGuAWFCTqOScVtD3o98K0iFByw/viewform" target="_blank" class="btn-style btn-green desktop-only">
@@ -412,17 +414,17 @@
     <section class="section" id="services">
         <h2 class="section-title">How We Help Brands Grow?</h2>
         <div class="services-wrapper">
-            <p class="services-intro">We work with B2C brands to solve growth problems at different stages — from fixing fundamentals to scaling performance and managing complexity.</p>
-            
+            <p class="services-intro">We work with scaling brands to solve growth problems at every stage — combining senior expertise with AI-powered tools for faster insights, sharper creative, and better outcomes.</p>
+
             <div class="services-grid-box">
                 <div class="service-pill">Meta & Google Ads</div>
                 <div class="service-pill">Conversion Rate Optimisation</div>
                 <div class="service-pill">Attribution & Tracking</div>
-                <div class="service-pill">Marketplace Management</div>
+                <div class="service-pill">AI Creative Intelligence</div>
                 <div class="service-pill">Creative Strategy</div>
                 <div class="service-pill">Retention & CRM</div>
                 <div class="service-pill">Funnel Analysis</div>
-                <div class="service-pill">Growth Experimentation</div>
+                <div class="service-pill">AI-Powered Analytics</div>
                 <div class="service-pill">Influencer Marketing</div>
             </div>
         </div>
@@ -503,6 +505,7 @@
                 <div class="comp-subtitle" style="color: var(--mint);">Fixed monthly retainer</div>
                 <ul class="comp-list">
                     <li>Senior-led strategy + execution</li>
+                    <li>AI-powered insights and creative iteration</li>
                     <li>Strong foundations before scaling</li>
                 </ul>
                 <div class="result-box result-good">Result: Faster clarity & sustainable growth.</div>
@@ -635,7 +638,7 @@
         <div class="footer-content">
             <div style="text-align: left; margin-bottom: 2rem;">
                 <img src="logo.png" alt="GrowthHQ: AI-Native Growth Agency Logo" class="footer-logo">
-                <p class="footer-text">Growth partner for early-stage and scaling B2C brands.</p>
+                <p class="footer-text">AI-native growth partner for scaling brands.</p>
                 <p class="footer-subtext">Led by Snehitha Avirneni</p>
                 <div class="footer-links">
                     <a href="https://www.linkedin.com/in/snehithaavirneni/" target="_blank">Connect on LinkedIn</a>
